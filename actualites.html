@@ -3,133 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centre de Veille & Articles Stratégiques PME | Rationale PME</title>
-    <meta name="description" content="10 dossiers experts sur la réduction du TCO d'impression, la cybersécurité des multifonctions, la facture électronique et la performance des systèmes DEVELOP.">
-</head>
-<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; background-color: #f8fafc; color: #0f172a; line-height: 1.7;">
+    <title>Centre de Veille, Actualités & Dossiers Experts PME | Rationale PME</title>
+    <meta name="description" content="Découvrez nos dossiers experts bi-hebdomadaires sur la sécurité IT, la GED KomiDoc, l'optimisation des volumes d'impression et l'ingénierie TCO pour PME.">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --text: #334155;
+            --text-dark: #0f172a;
+        }
 
-    <!-- HEADER -->
-    <header style="background-color: #ffffff; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 1000;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-            <a href="index.html" style="font-size: 1.6rem; font-weight: 900; color: #0f172a; text-decoration: none;">Rationale<span style="color: #2563eb;">PME</span></a>
-            <nav style="display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap;">
-                <a href="index.html" style="text-decoration: none; color: #475569; font-weight: 600;">Accueil</a>
-                <a href="tco.html" style="text-decoration: none; color: #475569; font-weight: 600;">Ingénierie TCO</a>
-               <a href="calculateur.html" style="text-decoration: none; color: #475569; font-weight: 600;">Simulateur TCO</a>
-                <a href="calculateur-it.html" style="text-decoration: none; color: #475569; font-weight: 600;">Simulateur IT & Cyber</a>
-                <a href="gamme-develop.html" style="text-decoration: none; color: #475569; font-weight: 600;">Matériel DEVELOP</a>
-                <a href="actualites.html" style="text-decoration: none; color: #2563eb; font-weight: 700;">Veille & Actualités</a>
-                <a href="contact.html" style="background-color: #10b981; color: #ffffff; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; text-decoration: none;">Audit Gratuit</a>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: var(--bg-light); color: var(--text); line-height: 1.7; }
+
+        header { background-color: #ffffff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .logo { font-size: 1.6rem; font-weight: 900; color: var(--primary); text-decoration: none; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; color: #475569; font-weight: 600; font-size: 0.95rem; }
+        .btn-header { background-color: var(--success); color: #ffffff !important; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; text-decoration: none; }
+
+        /* HERO */
+        .news-hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #ffffff; padding: 4rem 1.5rem; text-align: center; }
+        .news-hero h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem; }
+        .news-hero p { font-size: 1.1rem; color: #cbd5e1; max-width: 750px; margin: 0 auto; }
+
+        /* GRILLE 3 COLONNES */
+        .container { max-width: 1200px; margin: 4rem auto; padding: 0 1.5rem; }
+        .articles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
+        
+        .article-card { background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s; }
+        .article-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px -5px rgba(0,0,0,0.05); }
+        
+        .article-body { padding: 2rem; }
+        .article-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--accent); }
+        .article-meta span.date { color: #94a3b8; font-weight: 600; }
+        
+        .article-card h2 { font-size: 1.3rem; color: var(--text-dark); margin-bottom: 1rem; font-weight: 800; line-height: 1.4; }
+        .article-card p { font-size: 0.95rem; color: #64748b; margin-bottom: 1.5rem; }
+        
+        .article-footer { padding: 1.2rem 2rem; background: #f8fafc; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .article-footer a { color: var(--accent); font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+
+        footer { background-color: #0f172a; color: #94a3b8; text-align: center; padding: 3rem 1.5rem; margin-top: 5rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Rationale<span>PME</span></a>
+            <nav class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="tco.html">Ingénierie TCO</a>
+                <a href="calculateur.html">Simulateur Impression</a>
+                <a href="calculateur-it.html">Simulateur IT & Cyber</a>
+                <a href="gamme-develop.html">Matériel DEVELOP</a>
+                <a href="actualites.html" style="color: var(--accent); font-weight: 700;">Veille & Actualités</a>
+                <a href="https://tally.so/r/GeK01Q" target="_blank" class="btn-header">Questionnaire Gratuit</a>
             </nav>
         </div>
     </header>
 
-    <!-- HERO ACTUALITÉS -->
-    <section style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #ffffff; padding: 4rem 1.5rem; text-align: center;">
-        <div style="max-width: 800px; margin: 0 auto;">
-            <h1 style="font-size: 2.4rem; font-weight: 900; margin-bottom: 1rem;">Veille Stratégique & Analyses Expertes PME</h1>
-            <p style="font-size: 1.1rem; color: #cbd5e1;">Retrouvez nos 10 dossiers thématiques approfondis pour décrypter les enjeux réglementaires, financiers, RSE et sécuritaires de vos parcs documentaires et infrastructures IT.</p>
+    <section class="news-hero">
+        <div>
+            <h1>Centre de Veille & Publications Bi-Hebdomadaires</h1>
+            <p>Retrouvez nos analyses d'experts publiées deux fois par semaine pour décrypter les enjeux de cybersécurité, la baisse des volumes d'impression, la gestion des badges et l'automatisation par GED KomiDoc.</p>
         </div>
     </section>
 
-    <!-- LISTE DES ARTICLES DÉTAILLÉS -->
-    <main style="max-width: 1000px; margin: 4rem auto; padding: 0 1.5rem; display: flex; flex-direction: column; gap: 3rem;">
+    <main class="container">
+        <div class="articles-grid">
 
-        <!-- Article 1 -->
-        <article style="background: #ffffff; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
-            <span style="color: #10b981; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Dossier 01 — RSE & Écologie</span>
-            <h2 style="font-size: 1.8rem; color: #0f172a; margin-bottom: 1rem;">Comment Réduire l'Empreinte Carbone de son Parc d'Impression en PME ?</h2>
-            <p style="color: #475569; margin-bottom: 1.2rem;">L'impact environnemental des parcs bureautiques ne se limite pas à la consommation de ramettes de papier. Il englobe l'énergie consommée en mode veille, la fabrication des toners et la gestion des déchets d'équipements électriques et électroniques (DEEE).</p>
-            <p style="color: #475569; margin-bottom: 1.2rem;">En optant pour des constructeurs intégrant des toners polymérisés à basse température de fusion (comme la technologie Simitri HD sur les gammes DEVELOP), les PME divisent par deux leur consommation d'énergie par impression. De plus, la mise en place de règles de quotas et d'impression recto-verso par défaut réduit mécaniquement le gaspillage papier de 30%.</p>
-            <a href="contact.html" style="color: #2563eb; font-weight: 700; text-decoration: none;">Demander un audit énergétique de votre parc →</a>
-        </article>
+            <!-- Article 1 -->
+            <article class="article-card">
+                <div class="article-body">
+                    <div class="article-meta">
+                        <span>Sécurité IT & Réseau</span>
+                        <span class="date">Publication Mardi</span>
+                    </div>
+                    <h2>Sécuriser les Pare-feu et le Mouvement Latéral en PME</h2>
+                    <p>Au-delà de la simple protection périmétrique, les PME font face à des menaces de mouvement latéral où un équipement connecté compromis peut servir de tremplin vers le cœur du système d'information. Analyse des bonnes pratiques de cloisonnement réseau et pare-feu managés.</p>
+                </div>
+                <div class="article-footer">
+                    <a href="https://tally.so/r/GeK01Q" target="_blank">Consulter un expert IT →</a>
+                    <span style="font-size: 0.8rem; color: #94a3b8;">650 mots</span>
+                </div>
+            </article>
 
-        <!-- Article 2 -->
-        <article style="background: #ffffff; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
-            <span style="color: #ef4444; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Dossier 02 — Cybersécurité IT</span>
-            <h2 style="font-size: 1.8rem; color: #0f172a; margin-bottom: 1rem;">Les Imprimantes Multifonctions : La Faille de Sécurité Oubliée des PME</h2>
-            <p style="color: #475569; margin-bottom: 1.2rem;">Souvent considérées à tort comme de simples périphériques de bureau autonomes, les imprimantes modernes et multifonctions connectées disposent d'un système d'exploitation complet, d'une adresse IP et d'un disque dur interne stockant l'historique de tous les documents numérisés, copiés ou imprimés.</p>
-            <p style="color: #475569; margin-bottom: 1.2rem;">Pour les cybercriminels, un copieur mal sécurisé représente une porte d'entrée idéale pour s'introduire dans le réseau local de l'entreprise (mouvement latéral). L'intégration de solutions de protection active, telles que les firmwares sécurisés avec antivirus Bitdefender intégré, permet de stopper net les tentatives d'intrusion et de chiffrer les données au repos.</p>
-            <a href="contact.html" style="color: #2563eb; font-weight: 700; text-decoration: none;">Vérifier le niveau de sécurité de vos équipements →</a>
-        </article>
+            <!-- Article 2 -->
+            <article class="article-card">
+                <div class="article-body">
+                    <div class="article-meta">
+                        <span>Optimisation & TCO</span>
+                        <span class="date">Publication Vendredi</span>
+                    </div>
+                    <h2>Stratégie de Baisse des Volumes d'Impression en Entreprise</h2>
+                    <p>Imprimer moins pour dépenser mieux : comment la mise en place de politiques d'impression raisonnées, de règles de quotas par département et l'incitation au recto-verso par défaut permettent de réduire de 30% les volumes papier sans perte de productivité.</p>
+                </div>
+                <div class="article-footer">
+                    <a href="calculateur.html">Lancer le simulateur TCO →</a>
+                    <span style="font-size: 0.8rem; color: #94a3b8;">580 mots</span>
+                </div>
+            </article>
 
-        <!-- Article 3 -->
-        <article style="background: #ffffff; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
-            <span style="color: #2563eb; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Dossier 03 — Ingénierie Financière</span>
-            <h2 style="font-size: 1.8rem; color: #0f172a; margin-bottom: 1rem;">Décryptage du Coût à la Page : Éviter les Pièges des Loueurs</h2>
-            <p style="color: #475569; margin-bottom: 1.2rem;">Le modèle de tarification au coût à la page est devenu la norme pour l'acquisition de parcs d'impression. Cependant, les contrats initiaux cachent souvent des clauses complexes : volumes minimums facturés non consommés, indexation automatique sur des indices syntec/insee, ou encore facturation différenciée opaque entre les pages A4 et A3.</p>
-            <p style="color: #475569; margin-bottom: 1.2rem;">En tant qu'accompagnateur indépendant et tiers de confiance, notre rôle consiste à auditer vos factures pour identifier ces surcoûts invisibles et renégocier un contrat sur-mesure indexé strictement sur vos volumes réels d'utilisation, générant des économies immédiates de 15% à 30%.</p>
-            <a href="contact.html" style="color: #2563eb; font-weight: 700; text-decoration: none;">Faire analyser mes factures d'impression →</a>
-        </article>
+            <!-- Article 3 -->
+            <article class="article-card">
+                <div class="article-body">
+                    <div class="article-meta">
+                        <span>Confidentialité & RGPD</span>
+                        <span class="date">Publication Mardi</span>
+                    </div>
+                    <h2>Gestion des Badges et Impression Sécurisée Follow-Me</h2>
+                    <p>Les documents confidentiels oubliés sur les bacs de sortie constituent une faille majeure de conformité RGPD. L'authentification par badge RFID (Follow-Me) garantit que seule la personne émettrice libère l'impression au pied de la machine DEVELOP.</p>
+                </div>
+                <div class="article-footer">
+                    <a href="https://tally.so/r/GeK01Q" target="_blank">En savoir plus →</a>
+                    <span style="font-size: 0.8rem; color: #94a3b8;">610 mots</span>
+                </div>
+            </article>
 
-        <!-- Article 4 -->
-        <article style="background: #ffffff; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
-            <span style="color: #8b5cf6; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Dossier 04 — Performance Matériel</span>
-            <h2 style="font-size: 1.8rem; color: #0f172a; margin-bottom: 1rem;">Pourquoi la Gamme DEVELOP (Konica Minolta) Optimise le Coût de Revient</h2>
-            <p style="color: #475569; margin-bottom: 1.2rem;">Toutes les marques de bureautique ne se valent pas en matière de robustesse technique. La gamme de systèmes ineo de DEVELOP, adossée à l'expertise technologique mondiale de Konica Minolta, se distingue par la longévité de ses pièces maîtresses (tambours longue durée, fours haute résistance).</p>
-            <p style="color: #475569; margin-bottom: 1.2rem;">Moins de pannes techniques signifie moins d'interventions de maintenance, une disponibilité accrue pour les collaborateurs et un coût de revient global par document sensiblement inférieur à la moyenne du marché pour les PME et ETI.</p>
-            <a href="gamme-develop.html" style="color: #2563eb; font-weight: 700; text-decoration: none;">Découvrir les spécifications des gammes DEVELOP →</a>
-        </article>
+            <!-- Article 4 -->
+            <article class="article-card">
+                <div class="article-body">
+                    <div class="article-meta">
+                        <span>Dématérialisation & GED</span>
+                        <span class="date">Publication Vendredi</span>
+                    </div>
+                    <h2>Automatisation Comptable avec la GED KomiDoc Advanced</h2>
+                    <p>Comment la suite KomiDoc Advanced s'intègre avec vos multifonctions pour automatiser la réception, le traitement OCR, le circuit de validation et l'archivage légal des factures fournisseurs, répondant ainsi aux exigences de la facture électronique.</p>
+                </div>
+                <div class="article-footer">
+                    <a href="gamme-develop.html">Découvrir les intégrations →</a>
+                    <span style="font-size: 0.8rem; color: #94a3b8;">720 mots</span>
+                </div>
+            </article>
 
-        <!-- Article 5 -->
-        <article style="background: #ffffff; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
-            <span style="color: #10b981; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Dossier 05 — Législation & GED</span>
-            <h2 style="font-size: 1.8rem; color: #0f172a; margin-bottom: 1rem;">Facturation Électronique : Anticiper la Transition sans Bloquer sa Trésorerie</h2>
-            <p style="color: #475569; margin-bottom: 1.2rem;">L'obligation légale de la facture électronique impose aux entreprises françaises de se doter d'architectures logicielles compatibles (Plateformes de Dématérialisation Partenaires - PDP). Pour les PME, cette mutation ne doit pas être subie comme une contrainte administrative supplémentaire.</p>
-            <p style="color: #475569; margin-bottom: 1.2rem;">En couplant vos multifonctions et vos scanners à des solutions de GED (Gestion Électronique de Documents) performantes, vous automatisez la réception, le traitement OCR et la validation comptable de vos factures fournisseurs tout en garantissant une conformité fiscale absolue.</p>
-            <a href="contact.html" style="color: #2563eb; font-weight: 700; text-decoration: none;">Préparer ma conformité facturation électronique →</a>
-        </article>
+            <!-- Article 5 -->
+            <article class="article-card">
+                <div class="article-body">
+                    <div class="article-meta">
+                        <span>Cybersécurité Endpoint</span>
+                        <span class="date">Publication Mardi</span>
+                    </div>
+                    <h2>Antivirus, EDR et XDR : Quelle Protection pour les Postes PME ?</h2>
+                    <p>Face à l'explosion des ransomwares ciblés, l'antivirus traditionnel ne suffit plus. Décryptage des technologies EDR (Endpoint Detection and Response) et XDR managées pour identifier les comportements anormaux sur les postes de travail.</p>
+                </div>
+                <div class="article-footer">
+                    <a href="calculateur-it.html">Estimer votre budget IT →</a>
+                    <span style="font-size: 0.8rem; color: #94a3b8;">690 mots</span>
+                </div>
+            </article>
 
-        <!-- Article 6 -->
-        <article style="background: #ffffff; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
-            <span style="color: #ef4444; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Dossier 06 — Confidentialité</span>
-            <h2 style="font-size: 1.8rem; color: #0f172a; margin-bottom: 1rem;">Sécuriser la Sortie des Documents : L'Impression Follow-Me par Badge</h2>
-            <p style="color: #475569; margin-bottom: 1.2rem;">Combien de documents sensibles (bulletins de paie, contrats RH, bilans financiers) restent oubliés chaque jour dans les bacs de sortie des imprimantes partagées ? Cette faille humaine expose l'entreprise à des violations graves du RGPD.</p>
-            <p style="color: #475569; margin-bottom: 1.2rem;">L'authentification par badge (Follow-Me Printing) solutionne ce problème en obligeant l'utilisateur à s'identifier physiquement devant la machine pour libérer l'impression de ses travaux. Résultat : zéro document abandonné et une baisse du volume imprimé global de 10% à 15% par le simple effet psychologique.</p>
-            <a href="contact.html" style="color: #2563eb; font-weight: 700; text-decoration: none;">Mettre en place l'impression sécurisée par badge →</a>
-        </article>
+            <!-- Article 6 -->
+            <article class="article-card">
+                <div class="article-body">
+                    <div class="article-meta">
+                        <span>Finances & Contrats</span>
+                        <span class="date">Publication Vendredi</span>
+                    </div>
+                    <h2>Anticiper le Rachat de Bail et l'Intégration du Restant Dû</h2>
+                    <p>Changer de prestataire d'impression avant le terme de son contrat n'est pas un frein financier si l'on maîtrise le calcul du restant dû, des pénalités de rachat de soulte et le lissage intelligent sur la nouvelle période d'engagement.</p>
+                </div>
+                <div class="article-footer">
+                    <a href="calculateur.html">Calculer votre restant dû →</a>
+                    <span style="font-size: 0.8rem; color: #94a3b8;">550 mots</span>
+                </div>
+            </article>
 
-        <!-- Article 7 -->
-        <article style="background: #ffffff; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
-            <span style="color: #10b981; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Dossier 07 — Économie Circulaire</span>
-            <h2 style="font-size: 1.8rem; color: #0f172a; margin-bottom: 1rem;">Recyclage et Valorisation des Consommables en Fin de Vie</h2>
-            <p style="color: #475569; margin-bottom: 1.2rem;">La gestion des cartouches d'encre usagées et des cartouches de toner relève de la responsabilité sociétale des entreprises (RSE). Jeter ces composants dans les circuits de déchets classiques constitue une infraction aux réglementations environnementales en vigueur.</p>
-            <p style="color: #475569; margin-bottom: 1.2rem;">Nos programmes d'accompagnement incluent systématiquement la mise à disposition de bacs de collecte spécifiques et la traçabilité certifiée du recyclage des matières plastiques et métalliques, garantissant à votre PME un bilan carbone irréprochable sur le poste bureautique.</p>
-            <a href="contact.html" style="color: #2563eb; font-weight: 700; text-decoration: none;">En savoir plus sur nos engagements écologiques →</a>
-        </article>
-
-        <!-- Article 8 -->
-        <article style="background: #ffffff; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
-            <span style="color: #2563eb; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Dossier 08 — Gestion Financière</span>
-            <h2 style="font-size: 1.8rem; color: #0f172a; margin-bottom: 1rem;">OPEX vs CAPEX : Arbitrer son Financement Informatique et Bureautique</h2>
-            <p style="color: #475569; margin-bottom: 1.2rem;">Dans un contexte économique incertain où la préservation du Fonds de Roulement (BFR) est primordiale pour les PME, le choix du mode de financement des équipements technologiques est stratégique. Faut-il acheter en fonds propres (CAPEX) ou privilégier la location financière évolutive (OPEX) ?</p>
-            <p style="color: #475569; margin-bottom: 1.2rem;">La location financière permet de lisser les dépenses, d'intégrer la maintenance et les consommables dans une même redevance mensuelle déductible en charges d'exploitation, et de renouveler le parc technologique sans obsolescence subie.</p>
-            <a href="contact.html" style="color: #2563eb; font-weight: 700; text-decoration: none;">Optimiser le mode de financement de votre parc →</a>
-        </article>
-
-        <!-- Article 9 -->
-        <article style="background: #ffffff; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
-            <span style="color: #8b5cf6; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Dossier 09 — Productivité Métier</span>
-            <h2 style="font-size: 1.8rem; color: #0f172a; margin-bottom: 1rem;">Numérisation Intelligente et OCR : Gagner 15 Minutes par Collaborateur</h2>
-            <p style="color: #475569; margin-bottom: 1.2rem;">Le temps passé à rechercher un dossier papier égaré ou à retaper manuellement des données de facturation représente un coût caché considérable pour les PME de services et du négoce.</p>
-            <p style="color: #475569; margin-bottom: 1.2rem;">L'utilisation de chargeurs de documents haute vitesse combinés à la reconnaissance optique de caractères (OCR) directement depuis les multifonctions permet de transformer instantanément n'importe quel document papier en fichier PDF interrogeable, classé automatiquement dans le répertoire adéquat du serveur ou du cloud.</p>
-            <a href="contact.html" style="color: #2563eb; font-weight: 700; text-decoration: none;">Booster la productivité de vos équipes administratives →</a>
-        </article>
-
-        <!-- Article 10 -->
-        <article style="background: #ffffff; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);">
-            <span style="color: #2563eb; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Dossier 10 — Indépendance & Conseil</span>
-            <h2 style="font-size: 1.8rem; color: #0f172a; margin-bottom: 1rem;">Le Rôle Stratégique du Tiers de Confiance Indépendant en Île-de-France</h2>
-            <p style="color: #475569; margin-bottom: 1.2rem;">Face à la multiplication des offres des grands constructeurs et des intégrateurs IT, les dirigeants de PME manquent souvent de repères neutres pour arbitrer leurs investissements technologiques sans biais commercial.</p>
-            <p style="color: #475569; margin-bottom: 1.2rem;">En agissant en tant qu'architecte et conseiller indépendant en Essonne et en Île-de-France, Rationale PME audite vos besoins réels, compare les meilleures solutions du marché et pilote la mise en relation avec les distributeurs régionaux les plus performants pour garantir la réussite de vos projets.</p>
-            <a href="contact.html" style="color: #2563eb; font-weight: 700; text-decoration: none;">Bénéficier d'un accompagnement sur-mesure →</a>
-        </article>
-
+        </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer style="background-color: #0f172a; color: #94a3b8; text-align: center; padding: 3rem 1.5rem; margin-top: 4rem;">
-        <p>&copy; 2026 Rationale PME — Solutions d'optimisation financière et sécurisation IT pour PME. Tous droits réservés.</p>
+    <footer>
+        <p>&copy; 2026 Rationale PME — Veille stratégique et publications bi-hebdomadaires. Tous droits réservés.</p>
     </footer>
 
 </body>
