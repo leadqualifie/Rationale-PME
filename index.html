@@ -3,17 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rationale PME | Audit & Optimization des Coûts d'Impression pour PME</title>
-    <meta name="description" content="Réduisez vos frais d'impression et de gestion documentaire en Essonne et Île-de-France. Audit gratuit, analyse TCO et solutions GED sur-mesure pour PME.">
+    <title>Rationale PME | Audit, Conseil en Impression, IT & Cybersécurité pour PME</title>
+    <meta name="description" content="Accompagnement indépendant pour PME en Essonne et Île-de-France. Optimisation TCO impression, intégration GED, infrastructures IT et cybersécurité.">
     <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Rationale PME - Réduisez vos coûts d'impression PME">
-    <meta property="og:description" content="Optimisez votre parc d'impression et vos flux documentaires avec notre audit indépendant pour PME.">
-    <meta property="og:type" content="website">
 
     <!-- Script Tally.so -->
-    <script src="https://tally.so/widgets/embed.js"></script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
 
     <style>
         :root {
@@ -25,13 +20,10 @@
             --text: #334155;
             --text-dark: #0f172a;
             --white: #ffffff;
+            --border: #e2e8f0;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -49,7 +41,7 @@
         }
 
         .nav-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 1rem 1.5rem;
             display: flex;
@@ -62,12 +54,9 @@
             font-weight: 800;
             color: var(--primary);
             text-decoration: none;
-            letter-spacing: -0.5px;
         }
 
-        .logo span {
-            color: var(--accent);
-        }
+        .logo span { color: var(--accent); }
 
         .btn-header {
             background-color: var(--primary);
@@ -77,37 +66,22 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: background-color 0.2s;
+            border: none;
+            cursor: pointer;
         }
 
-        .btn-header:hover {
-            background-color: var(--primary-hover);
-        }
+        .btn-header:hover { background-color: var(--primary-hover); }
 
         .hero {
             background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
             color: var(--white);
-            padding: 4rem 1.5rem;
+            padding: 5rem 1.5rem;
             text-align: center;
         }
 
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1.2rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #cbd5e1;
-            margin-bottom: 2rem;
-        }
+        .hero-content { max-width: 900px; margin: 0 auto; }
+        .hero h1 { font-size: 2.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.2rem; }
+        .hero p { font-size: 1.2rem; color: #cbd5e1; margin-bottom: 2rem; }
 
         .btn-cta {
             display: inline-block;
@@ -119,67 +93,103 @@
             border-radius: 8px;
             text-decoration: none;
             box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4);
-            transition: transform 0.2s, background-color 0.2s;
             border: none;
             cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
         }
 
-        .btn-cta:hover {
-            background-color: #16a34a;
-            transform: translateY(-2px);
+        .btn-cta:hover { background-color: #16a34a; transform: translateY(-2px); }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 1.5rem;
         }
 
-        .features {
-            max-width: 1100px;
-            margin: 4rem auto;
-            padding: 0 1.5rem;
+        .section-title {
+            text-align: center;
+            color: var(--text-dark);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 2rem;
         }
 
         .card {
             background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border);
         }
 
-        .card h3 {
-            color: var(--text-dark);
-            font-size: 1.3rem;
+        .card h3 { color: var(--text-dark); font-size: 1.4rem; margin-bottom: 1rem; }
+        .card p { font-size: 0.95rem; margin-bottom: 1rem; color: var(--text); }
+        .card ul { list-style-type: disc; padding-left: 1.2rem; font-size: 0.92rem; color: var(--text); }
+        .card li { margin-bottom: 0.5rem; }
+
+        .tco-section {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tco-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .tco-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.9rem; }
+        }
+
+        .news-section {
+            background-color: #f1f5f9;
+        }
+
+        .news-badge {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
             margin-bottom: 0.8rem;
+            text-transform: uppercase;
         }
 
-        .card p {
-            color: var(--text);
-            font-size: 0.95rem;
-        }
-
-        .cta-section {
-            background-color: var(--white);
-            border-top: 1px solid #e2e8f0;
-            padding: 4rem 1.5rem;
+        .cta-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: var(--white);
             text-align: center;
-        }
-
-        .cta-container {
-            max-width: 700px;
-            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            border-radius: 12px;
+            margin: 4rem 0;
         }
 
         footer {
             background-color: var(--secondary);
             color: #94a3b8;
             text-align: center;
-            padding: 2rem 1.5rem;
+            padding: 2.5rem 1.5rem;
             font-size: 0.85rem;
-        }
-
-        @media (max-width: 640px) {
-            .hero h1 { font-size: 1.8rem; }
-            .hero p { font-size: 1rem; }
         }
     </style>
 </head>
@@ -194,38 +204,79 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Optimisez vos coûts d'impression et de gestion documentaire</h1>
-            <p>Accompagnement indépendant pour PME et ETI en Essonne & Île-de-France. Réduisez votre TCO de 15% à 30% sans changer vos habitudes.</p>
+            <h1>Votre tiers de confiance indépendant pour l'optimisation des flux, de l'IT et de la Sécurité</h1>
+            <p>Accompagnement stratégique et opérationnel des PME et ETI en Essonne et Île-de-France. Réduisez vos coûts globaux (TCO) et sécurisez vos environnements de travail.</p>
             <button class="btn-cta" data-tally-open="31qBvJ" data-tally-layout="modal" data-tally-width="500">Obtenir mon diagnostic gratuit</button>
         </div>
     </section>
 
-    <section class="features">
-        <div class="card">
-            <h3>Audit TCO Indépendant</h3>
-            <p>Analyse complète de vos contrats d'impression, du cout à la page et du parc matériel pour identifier immédiatement vos gisements d'économies.</p>
+    <!-- SECTION CE QUE NOUS FAISONS (DÉTAIL MÉTIER) -->
+    <div class="container">
+        <h2 class="section-title">Nos Domaines d'Expertise & Actions au Quotidien</h2>
+        <p class="section-subtitle">Nous intervenons aux côtés des dirigeants pour structurer, rationaliser et sécuriser l'ensemble de leurs environnements bureautiques et numériques.</p>
+        
+        <div class="grid-3">
+            <div class="card">
+                <h3>1. Impression & Bureautique</h3>
+                <p>Audit complet de vos parcs de copieurs, imprimantes et multifonctions toutes marques. Nous éliminons les surcoûts liés aux impressions non maîtrisées.</p>
+                <ul>
+                    <li>Analyse des contrats de location et de maintenance en cours</li>
+                    <li>Rationalisation des parcs hétérogènes</li>
+                    <li>Mise en place de politiques d'impression écologiques</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>2. Dématérialisation & GED</h3>
+                <p>Transition vers le zéro papier grâce à la Gestion Électronique de Documents (GED) et des flux de travail automatisés adaptés à vos métiers.</p>
+                <ul>
+                    <li>Facturation électronique obligatoire (conformité PME)</li>
+                    <li>Dématérialisation des bulletins de paie et notes de frais</li>
+                    <li>Archivage légal sécurisé et recherche documentaire instantanée</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>3. Infrastructures IT & Cybersécurité</h3>
+                <p>Sécurisation et modernisation de vos réseaux informatiques, postes de travail et serveurs pour prémunir votre entreprise contre les cybermenaces.</p>
+                <ul>
+                    <li>Audits de vulnérabilité et sécurisation des réseaux</li>
+                    <li>Solutions de sauvegarde externalisée et PRA (Plan de Reprise d'Activité)</li>
+                    <li>Mise en conformité RGPD et sécurité des accès distants</li>
+                </ul>
+            </div>
         </div>
-        <div class="card">
-            <h3>Intégration GED & Dématérialisation</h3>
-            <p>Mise en place de solutions de gestion électronique de documents (GED) adaptées aux processus métier des PME du bâtiment, services et négoce.</p>
-        </div>
-        <div class="card">
-            <h3>Réseau & Proximité Régionale</h3>
-            <p>Interventions rapides et suivi de proximité avec des partenaires certifiés sur l'Essonne (91), la Seine-et-Marne (77) et l'Île-de-France.</p>
+    </div>
+
+    <!-- SECTION TCO -->
+    <section class="tco-section">
+        <div class="container">
+            <div class="tco-grid">
+                <div>
+                    <h2 style="font-size: 2rem; color: var(--text-dark); margin-bottom: 1.5rem;">Maîtriser son TCO : Le secret d'une rentabilité durable</h2>
+                    <p style="margin-bottom: 1rem;">Le <strong>TCO (Total Cost of Ownership - Coût Total de Possession)</strong> va bien au-delà de la simple facture mensuelle de location de matériel. Il englobe tous les coûts cachés :</p>
+                    <ul style="padding-left: 1.2rem; margin-bottom: 1.5rem;">
+                        <li>Le coût réel des consommables et de l'encre gaspillée</li>
+                        <li>Les pertes de temps liées aux pannes et aux interventions techniques</li>
+                        <li>Les coûts énergétiques et de maintenance non optimisés</li>
+                    </ul>
+                    <p>En tant qu'<strong>accompagnateur indépendant</strong>, nous auditez ces variables en toute neutralité pour vous orienter vers les meilleurs partenaires locaux et distributeurs régionaux, générant de <strong>15% à 30% d'économies</strong>.</p>
+                </div>
+                <div class="card" style="background: #f8fafc; border-left: 4px solid var(--accent);">
+                    <h3>Notre Rôle de Tiers de Confiance</h3>
+                    <p>Face à la complexité des offres des grands constructeurs et opérateurs, les dirigeants de PME manquent de visibilité.</p>
+                    <p style="margin-top: 1rem;">Nous jouons le rôle d'architecte : <strong>nous définissons votre besoin réel</strong>, comparons les solutions du marché et pilotons l'intégration avec les meilleurs experts techniques de votre région (Essonne, Île-de-France, Grand Est).</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="cta-section">
-        <div class="cta-container">
-            <h2>Prêt à réduire vos charges fixes ?</h2>
-            <p style="margin: 1rem 0 2rem 0; color: #64748b;">Complétez notre formulaire en 2 minutes pour recevoir une première analyse sans engagement.</p>
-            <button class="btn-cta" data-tally-open="31qBvJ" data-tally-layout="modal" data-tally-width="500">Lancer mon étude personnalisée</button>
-        </div>
-    </section>
+    <!-- SECTION ACTUALITÉS : LÉGISLATION, FINANCIER & SÉCURITÉ -->
+    <section class="container news-section" style="max-width: 100%; background-color: #f1f5f9; padding: 5rem 1.5rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">Veille & Actualités : Législation, Finance & Sécurité</h2>
+            <p class="section-subtitle">Restez informés des dernières évolutions réglementaires et technologiques impactant l'impression et l'IT en entreprise.</p>
 
-    <footer>
-        <p>&copy; 2026 Rationale PME — Solutions d'optimisation documentaire pour PME. Tous droits réservés.</p>
-    </footer>
-
-</body>
-</html>
+            <div class="grid-3">
+                <div class="card">
+                    <span class="news-badge">Législation & Conformité</span>
+                    <h3>Facturation Électronique & GED</h3>
+                    <p>L'obligation progressive de la facture électronique impose aux PME de s'équiper de plateformes agréées (PDP/PPF).
