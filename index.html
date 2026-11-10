@@ -3,32 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rationale PME - Gouvernance et Dématérialisation en Île-de-France et Grand Est</title>
+    <title>Rationale PME | Audit & Optimization des Coûts d'Impression pour PME</title>
+    <meta name="description" content="Réduisez vos frais d'impression et de gestion documentaire en Essonne et Île-de-France. Audit gratuit, analyse TCO et solutions GED sur-mesure pour PME.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Rationale PME - Réduisez vos coûts d'impression PME">
+    <meta property="og:description" content="Optimisez votre parc d'impression et vos flux documentaires avec notre audit indépendant pour PME.">
+    <meta property="og:type" content="website">
+
+    <!-- Script Tally.so -->
+    <script src="https://tally.so/widgets/embed.js"></script>
+
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #1e293b; max-width: 800px; margin: 0 auto; padding: 40px 20px; background: #f8fafc; }
-        .container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        h1 { color: #0f172a; font-size: 28px; margin-bottom: 20px; }
-        h2 { color: #0284c7; font-size: 20px; margin-top: 30px; margin-bottom: 15px; }
-        p { margin-bottom: 15px; color: #475569; }
-        .cta { text-align: center; margin-top: 40px; padding: 30px; background: #f8fafc; border-radius: 8px; border: 2px dashed #0284c7; }
-        .btn { background: #0284c7; color: white; padding: 16px 32px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 18px; display: inline-block; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .btn:hover { background: #0369a1; }
+        :root {
+            --primary: #1e3a8a;
+            --primary-hover: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #2563eb;
+            --bg-light: #f8fafc;
+            --text: #334155;
+            --text-dark: #0f172a;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .btn-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn-header:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            color: var(--white);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: #22c55e;
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-cta:hover {
+            background-color: #16a34a;
+            transform: translateY(-2px);
+        }
+
+        .features {
+            max-width: 1100px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .card h3 {
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .cta-section {
+            background-color: var(--white);
+            border-top: 1px solid #e2e8f0;
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        footer {
+            background-color: var(--secondary);
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Rationale PME</h1>
-        <p><em>Expertise en gouvernance documentaire, optimisation du TCO et dématérialisation pour les entreprises en Essonne, Île-de-France et Grand Est.</em></p>
-        
-        <h2>Notre Approche</h2>
-        <p>Nous aidons les directions administratives et financières à sécuriser leurs flux d'information, anticiper les obligations légales et rationaliser leurs coûts d'impression et de gestion.</p>
 
-        <div class="cta">
-            <h2>Évaluez vos besoins en ligne</h2>
-            <p>Accédez immédiatement à notre questionnaire sécurisé pour recevoir votre étude personnalisée :</p>
-            <br>
-            <a href="https://tally.so/r/GeK01Q" target="_blank" class="btn">Remplir le questionnaire Tally →</a>
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Rationale<span>PME</span></a>
+            <button class="btn-header" data-tally-open="31qBvJ" data-tally-layout="modal" data-tally-width="500">Demander un audit</button>
         </div>
-    </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Optimisez vos coûts d'impression et de gestion documentaire</h1>
+            <p>Accompagnement indépendant pour PME et ETI en Essonne & Île-de-France. Réduisez votre TCO de 15% à 30% sans changer vos habitudes.</p>
+            <button class="btn-cta" data-tally-open="31qBvJ" data-tally-layout="modal" data-tally-width="500">Obtenir mon diagnostic gratuit</button>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="card">
+            <h3>Audit TCO Indépendant</h3>
+            <p>Analyse complète de vos contrats d'impression, du cout à la page et du parc matériel pour identifier immédiatement vos gisements d'économies.</p>
+        </div>
+        <div class="card">
+            <h3>Intégration GED & Dématérialisation</h3>
+            <p>Mise en place de solutions de gestion électronique de documents (GED) adaptées aux processus métier des PME du bâtiment, services et négoce.</p>
+        </div>
+        <div class="card">
+            <h3>Réseau & Proximité Régionale</h3>
+            <p>Interventions rapides et suivi de proximité avec des partenaires certifiés sur l'Essonne (91), la Seine-et-Marne (77) et l'Île-de-France.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Prêt à réduire vos charges fixes ?</h2>
+            <p style="margin: 1rem 0 2rem 0; color: #64748b;">Complétez notre formulaire en 2 minutes pour recevoir une première analyse sans engagement.</p>
+            <button class="btn-cta" data-tally-open="31qBvJ" data-tally-layout="modal" data-tally-width="500">Lancer mon étude personnalisée</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Rationale PME — Solutions d'optimisation documentaire pour PME. Tous droits réservés.</p>
+    </footer>
+
 </body>
 </html>
