@@ -5,298 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rationale PME | Audit TCO, Impression & Cybersécurité PME</title>
     <meta name="description" content="Accompagnement indépendant pour PME et ETI. Réduisez vos coûts d'impression de 15% à 30%, sécurisez vos systèmes IT et automatisez votre GED.">
-    
-    <!-- Script Tally officiel avec fallback -->
-    <script async src="https://tally.so/widgets/embed.js"></script>
-
-    <style>
-        :root {
-            --primary: #0f172a;
-            --accent: #2563eb;
-            --accent-green: #10b981;
-            --accent-orange: #f59e0b;
-            --bg-light: #f8fafc;
-            --card-bg: #ffffff;
-            --text-dark: #0f172a;
-            --text-muted: #475569;
-            --border: #e2e8f0;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            line-height: 1.6;
-        }
-
-        /* HEADER & NAVIGATION */
-        header {
-            background-color: #ffffff;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 900;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span { color: var(--accent); }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            padding: 0.5rem 0.8rem;
-            border-radius: 6px;
-            transition: all 0.2s;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--accent);
-            background-color: #eff6ff;
-        }
-
-        .btn-tally-trigger {
-            background-color: var(--accent-green);
-            color: #ffffff;
-            padding: 0.7rem 1.4rem;
-            border-radius: 8px;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
-            transition: transform 0.2s, background-color 0.2s;
-        }
-
-        .btn-tally-trigger:hover {
-            background-color: #059669;
-            transform: translateY(-1px);
-        }
-
-        /* DYNAMIC TAB SECTIONS */
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* HERO SECTION */
-        .hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-            color: #ffffff;
-            padding: 5rem 1.5rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-inner { max-width: 900px; margin: 0 auto; }
-        .badge-hero {
-            background: rgba(37, 99, 235, 0.2);
-            color: #93c5fd;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            border: 1px solid rgba(147, 197, 253, 0.3);
-            display: inline-block;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 { font-size: 2.8rem; font-weight: 900; line-height: 1.15; margin-bottom: 1.5rem; }
-        .hero p { font-size: 1.25rem; color: #cbd5e1; margin-bottom: 2.5rem; }
-
-        /* SIMULATEUR TCO RAPIDE */
-        .calculator-card {
-            background: #ffffff;
-            color: var(--text-dark);
-            border-radius: 16px;
-            padding: 2.5rem;
-            max-width: 800px;
-            margin: -3rem auto 3rem auto;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--border);
-            position: relative;
-            z-index: 10;
-        }
-
-        .calc-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-            text-align: left;
-        }
-
-        .input-group label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            margin-bottom: 0.4rem;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .calc-result {
-            background: #ecfdf5;
-            border: 1px solid #a7f3d0;
-            padding: 1.2rem;
-            border-radius: 10px;
-            text-align: center;
-            grid-column: span 2;
-        }
-
-        .calc-result span {
-            font-size: 2rem;
-            font-weight: 900;
-            color: #047857;
-            display: block;
-        }
-
-        /* GRID CONTENT & CARDS */
-        .container { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 2rem; }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .card-img { width: 100%; height: 200px; object-fit: cover; }
-        .card-body { padding: 1.8rem; }
-        .card-tag {
-            font-size: 0.75rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        .card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; color: var(--text-dark); line-height: 1.3; }
-        .card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem; }
-
-        /* FOOTER */
-        footer {
-            background: var(--primary);
-            color: #94a3b8;
-            text-align: center;
-            padding: 3rem 1.5rem;
-            margin-top: 4rem;
-            border-top: 1px solid #1e293b;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .calc-grid { grid-template-columns: 1fr; }
-            .calc-result { grid-column: span 1; }
-            .nav-links { display: none; }
-        }
-    </style>
 </head>
-<body>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; background-color: #f8fafc; color: #0f172a; line-height: 1.6;">
 
     <!-- HEADER & NAVIGATION -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo" onclick="switchTab('accueil')">Rationale<span>PME</span></a>
-            <ul class="nav-links">
-                <li><a class="nav-link active" id="nav-accueil" onclick="switchTab('accueil')">Accueil</a></li>
-                <li><a class="nav-link" id="nav-metiers" onclick="switchTab('metiers')">Expertise & TCO</a></li>
-                <li><a class="nav-link" id="nav-actualites" onclick="switchTab('actualites')">Actualités & Veille (5)</a></li>
-            </ul>
-            <button class="btn-tally-trigger" onclick="openTallyForm()">Audit TCO Gratuit</button>
+    <header style="background-color: #ffffff; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 1000;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" style="font-size: 1.6rem; font-weight: 900; color: #0f172a; text-decoration: none;">Rationale<span style="color: #2563eb;">PME</span></a>
+            
+            <nav style="display: flex; gap: 1.5rem; align-items: center;">
+                <a href="#accueil" style="text-decoration: none; color: #475569; font-weight: 600;">Accueil</a>
+                <a href="#metiers" style="text-decoration: none; color: #475569; font-weight: 600;">Expertise & TCO</a>
+                <a href="#actualites" style="text-decoration: none; color: #475569; font-weight: 600;">Actualités (5)</a>
+                <a href="https://tally.so/r/31qBvJ" target="_blank" style="background-color: #10b981; color: #ffffff; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; text-decoration: none;">Audit Gratuit</a>
+            </nav>
         </div>
     </header>
 
-    <!-- ONGLET 1 : ACCUEIL -->
-    <main id="tab-accueil" class="tab-content active">
-        <section class="hero">
-            <div class="hero-inner">
-                <span class="badge-hero">Tiers de confiance indépendant PME</span>
-                <h1>Arrêtez de surpayer vos équipements d'impression et votre IT</h1>
-                <p>Analyse TCO sans concession, sécurisation informatique et mise en relation avec les meilleurs prestataires d'Île-de-France et du Grand Est.</p>
-                <button class="btn-tally-trigger" style="font-size: 1.1rem; padding: 1rem 2.2rem;" onclick="openTallyForm()">Lancer mon diagnostic d'économie</button>
-            </div>
-        </section>
-
-        <!-- SIMULATEUR TCO DYNAMIQUE -->
-        <div class="calculator-card">
-            <h3 style="text-align: center; font-size: 1.4rem;">Simulateur d'Économies TCO Estimé</h3>
-            <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">Évaluez le gain annuel potentiel réalisable sur vos contrats actuels</p>
-            <div class="calc-grid">
-                <div class="input-group">
-                    <label>Nombre de multifonctions / imprimantes</label>
-                    <input type="number" id="calc-devices" value="4" oninput="calculateTCO()">
-                </div>
-                <div class="input-group">
-                    <label>Budget mensuel global (€ HT)</label>
-                    <input type="number" id="calc-monthly" value="850" oninput="calculateTCO()">
-                </div>
-                <div class="calc-result">
-                    <small style="font-weight: 700; color: #065f46; text-transform: uppercase;">Économie annuelle estimée (22% moyen)</small>
-                    <span id="calc-savings">2 244 € / an</span>
-                </div>
-            </div>
+    <!-- SECTION ACCUEIL -->
+    <section id="accueil" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #ffffff; padding: 5rem 1.5rem; text-align: center;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <span style="background: rgba(37, 99, 235, 0.2); color: #93c5fd; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; border: 1px solid rgba(147, 197, 253, 0.3); display: inline-block; margin-bottom: 1.5rem;">Tiers de confiance indépendant PME</span>
+            <h1 style="font-size: 2.8rem; font-weight: 900; line-height: 1.15; margin-bottom: 1.5rem;">Arrêtez de surpayer vos équipements d'impression et votre IT</h1>
+            <p style="font-size: 1.25rem; color: #cbd5e1; margin-bottom: 2.5rem;">Analyse TCO sans concession, sécurisation informatique et mise en relation avec les meilleurs prestataires d'Île-de-France et du Grand Est.</p>
+            <a href="https://tally.so/r/31qBvJ" target="_blank" style="display: inline-block; background-color: #10b981; color: #ffffff; font-size: 1.1rem; font-weight: 700; padding: 1rem 2.2rem; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);">Lancer mon diagnostic d'économie</a>
         </div>
+    </section>
 
-        <div class="container">
-            <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2.5rem;">Pourquoi réévaluer votre infrastructure ?</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="Audit financier TCO" class="card-img">
-                    <div class="card-body">
-                        <span class="card-tag">Optimisation Financière</span>
-                        <h3>Réduction de la facture TCO</h3>
-                        <p>Le prix du matériel ne représente que 30% du coût réel. Nous renégocions le coût à la page, les coûts administratifs et les clauses d'engagement.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="
+    <!-- SECTION EXPERTISE & TCO -->
+    <section id="metiers" style="max-width: 1200px; margin: 0 auto; padding: 5rem 1.5rem;">
+        <h2 style="font-size: 2.3rem; text-align: center; margin-bottom: 1rem;">Notre Métier : Architecte & Tiers de Confiance</h2>
+        <p style="text-align: center; color: #475569; max-width: 800px; margin: 0 auto 3rem auto; font-size: 1.1rem;">
+            Nous n'avons aucun matériel à écouler. Notre seule mission est d'aligner vos coûts sur les meilleurs tarifs du marché avec les distributeurs les plus fiables.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+            <div style="background: #ffffff; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+                <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #2563eb; display: block; margin-bottom: 0.5rem;">01. Impression & Bureautique</span>
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">Optimisation du TCO</h3>
+                <p style="color: #475569; font-size: 0.95rem;">Analyse complète de vos parcs hétérogènes, renégociation des coûts à la page et élimination des contrats surdimensionnés.</p>
+            </div>
+            <div style="background: #ffffff; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+                <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #2563eb; display: block; margin-bottom: 0.5rem;">02. Dématérialisation & GED</span>
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">Transition Zéro Papier</h3>
+                <p style="color: #475569; font-size:
