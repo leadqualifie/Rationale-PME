@@ -69,7 +69,7 @@
         /* SECTION CAS CLIENTS (PROBLÉMATIQUES RÉSOLUES) */
         .cases-section { background: #f1f5f9; padding: 5rem 1.5rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .cases-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2.5rem; }
-        .case-card { background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .case-card { background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between; }
         .case-img { width: 100%; height: 180px; object-fit: cover; }
         .case-content { padding: 2rem; }
         .case-tag { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 0.3rem 0.8rem; border-radius: 6px; display: inline-block; margin-bottom: 1rem; }
@@ -96,9 +96,9 @@
             <nav class="nav-links">
                 <a href="index.html" style="color: var(--accent); font-weight: 700;">Accueil</a>
                 <a href="tco.html">Ingénierie TCO</a>
-                <a href="gamme-develop.html">Matériel DEVELOP</a>
                 <a href="calculateur.html">Simulateur TCO</a>
-                <a href="calculateur-it.html" style="text-decoration: none; color: #475569; font-weight: 600;">Simulateur IT & Cyber</a>
+                <a href="calculateur-it.html">Simulateur IT & Cyber</a>
+                <a href="gamme-develop.html">Matériel DEVELOP</a>
                 <a href="actualites.html">Veille & Actualités</a>
                 <a href="https://tally.so/r/GeK01Q" target="_blank" class="btn-header">Questionnaire Gratuit</a>
             </nav>
@@ -170,11 +170,11 @@
         </div>
     </section>
 
-    <!-- CAS CLIENTS (PROBLÉMATIQUES RÉSOLUES) -->
+    <!-- CAS CLIENTS (6 PROBLÉMATIQUES RÉSOLUES AVEC IMAGES) -->
     <section class="cases-section">
         <div style="max-width: 1200px; margin: 0 auto;">
             <h2 class="section-title">Problématiques d'Entreprises Résolues</h2>
-            <p class="section-subtitle">Découvrez comment nos interventions ont transformé la gestion documentaire de nos clients.</p>
+            <p class="section-subtitle">Découvrez comment nos interventions ont transformé la gestion documentaire et l'infrastructure de nos clients.</p>
             
             <div class="cases-grid">
                 <!-- Cas 1 -->
@@ -207,6 +207,39 @@
                         <h3>Optimisation du TCO et passage à la facture électronique</h3>
                         <p>Parc hétérogène d'imprimantes de bureau achetées au détail sans vision centralisée ni maîtrise des coûts à la page.</p>
                         <div class="case-result">✓ Résultat : Refonte globale du parc, baisse du TCO de 24% et intégration GED.</div>
+                    </div>
+                </div>
+
+                <!-- Cas 4 (Infogérance IT) -->
+                <div class="case-card">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="Infogérance IT" class="case-img">
+                    <div class="case-content">
+                        <span class="case-tag">ETI de Services (77 / 93)</span>
+                        <h3>Refonte de l'infogérance et support utilisateurs réactif</h3>
+                        <p>Ralentissements chroniques du support informatique interne et tickets non résolus impactant la productivité des collaborateurs.</p>
+                        <div class="case-result">✓ Résultat : Reprise en main de l'infogérance, SLA garantis à 4h et agents managés.</div>
+                    </div>
+                </div>
+
+                <!-- Cas 5 (Sauvegarde & Cyber) -->
+                <div class="case-card">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Sauvegarde Cyber" class="case-img">
+                    <div class="case-content">
+                        <span class="case-tag">Cabinet d'Expertise (92 / Paris)</span>
+                        <h3>Mise en place d'une sauvegarde cloud immuable (PRA)</h3>
+                        <p>Absence de plan de reprise après sinistre (PRA) face à la menace croissante des ransomwares chiffrant les serveurs locaux.</p>
+                        <div class="case-result">✓ Résultat : Sauvegarde externalisée automatisée, immuable et testée trimestriellement.</div>
+                    </div>
+                </div>
+
+                <!-- Cas 6 (Presse Numérique) -->
+                <div class="case-card">
+                    <img src="https://images.unsplash.com/photo-1562577309-4932f164fdee?auto=format&fit=crop&w=600&q=80" alt="Presse Numérique" class="case-img">
+                    <div class="case-content">
+                        <span class="case-tag">Imprimerie & Agence de Communication (51)</span>
+                        <h3>Intégration d'une presse numérique haute production</h3>
+                        <p>Besoin d'internaliser la production de supports graphiques à fort grammage avec une colorimétrie irréprochable et un coût de revient réduit.</p>
+                        <div class="case-result">✓ Résultat : Installation d'une presse DEVELOP haute cadence et gains de marge de 35%.</div>
                     </div>
                 </div>
             </div>
