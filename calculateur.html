@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulateur TCO & Comparatif Situation Actuelle vs Proposée | Rationale PME</title>
-    <meta name="description" content="Simulateur financier interactif pour PME : comparez votre parc d'impression actuel et votre restant dû avec une solution optimisée DEVELOP.">
+    <title>Simulateur TCO & Restant Dû | Rationale PME</title>
+    <meta name="description" content="Simulateur financier PME : calculez votre restant dû (Loyers + Maintenance + 10% pénalités) et comparez avec une solution DEVELOP optimisée.">
     <style>
         :root {
             --primary: #0f172a;
@@ -80,8 +80,8 @@
     </header>
 
     <div class="calculator-container">
-        <h1 class="calc-title">Simulateur & Comparatif TCO Impression</h1>
-        <p class="calc-subtitle">Analysez votre parc actuel (A3/A4, loyers, maintenance, restant dû) face à la solution optimisée DEVELOP proposée.</p>
+        <h1 class="calc-title">Simulateur TCO & Analyse du Restant Dû</h1>
+        <p class="calc-subtitle">Intégrez les loyers, la maintenance résiduelle, les 10% de pénalités de rachat et comparez avec une solution DEVELOP conforme au marché.</p>
 
         <div class="calc-grid">
             <!-- 1. PARAMÈTRES DE LA SITUATION ACTUELLE -->
@@ -126,19 +126,15 @@
                     </div>
                 </div>
 
-                <div class="panel-header" style="font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 1rem;">Engagement & Restant Dû</div>
+                <div class="panel-header" style="font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 1rem;">Engagement & Restant Dû (Loyers + Maintenance + 10% Pénalités)</div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="loy-restants">Trimestres restants (Bail actuel)</label>
+                        <label for="loy-restants">Trimestres restants du contrat</label>
                         <input type="number" id="loy-restants" value="6" min="0" oninput="calculerTCO()">
                     </div>
                     <div class="form-group">
-                        <label for="rachat-taux">Option de reprise de soulte (%)</label>
-                        <select id="rachat-taux" onchange="calculerTCO()">
-                            <option value="1.0" selected>100% (Solde intégral)</option>
-                            <option value="0.90">90% (Lissage partiel)</option>
-                            <option value="0.80">80% (Reprise agressive)</option>
-                        </select>
+                        <label for="maint-mensuelle-act">Maintenance mensuelle actuelle (€)</label>
+                        <input type="number" id="maint-mensuelle-act" value="280" step="10" oninput="calculerTCO()" title="Forfait maintenance ou estimé pages">
                     </div>
                 </div>
             </div>
@@ -176,19 +172,20 @@
                     </table>
 
                     <div style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 0.5rem; display: flex; justify-content: space-between;">
-                        <span>Restant dû estimé (Rachat de bail) :</span>
-                        <strong style="color: var(--warning);" id="disp-restant-du">9 000,00 € HT</strong>
+                        <span>Restant Dû Total (Loyers + Maint. + 10% Pénalités) :</span>
+                        <strong style="color: var(--warning);" id="disp-restant-du">11 484,00 € HT</strong>
                     </div>
 
                     <div class="result-highlight">
-                        <div class="result-highlight-title">Gain net annuel estimé (TCO Réduit de ~22%)</div>
+                        <div class="result-highlight-title">Gain net annuel estimé (TCO Marché ~22%)</div>
                         <div class="result-highlight-amount" id="disp-gain-an">2 275,20 € / an</div>
                     </div>
                 </div>
 
                 <div>
-                    <a href="https://tally.so/r/GeK01Q" target="_blank" class="btn-action">Transmettre ce comparatif via le questionnaire →</a>
-                    <p style="text-align: center; font-size: 0.78rem; color: #94a3b8; margin-top: 0.8rem;">Étude personnalisée gratuite et sans engagement.</p>
+                    <!-- Bouton dynamique transmettant les données vers Tally -->
+                    <a href="#" id="tally-btn" target="_blank" class="btn-action" onclick="ouvrirTallyAvecDonnees(event)">Transmettre ce bilan via le questionnaire →</a>
+                    <p style="text-align: center; font-size: 0.78rem; color: #94a3b8; margin-top: 0.8rem;">Les données de votre simulation seront transmises automatiquement.</p>
                 </div>
             </div>
         </div>
@@ -204,28 +201,32 @@
             const cppCActuel = parseFloat(document.getElementById('cpp-c').value) || 0;
             
             const trimRestants = parseFloat(document.getElementById('loy-restants').value) || 0;
-            const tauxRachat = parseFloat(document.getElementById('rachat-taux').value) || 1.0;
+            const forfaitMaintActuel = parseFloat(document.getElementById('maint-mensuelle-act').value) || 0;
 
             // 2. Calculs Situation Actuelle
             const loyerMensuelActuel = loyerTrimActuel / 3;
-            const maintMensuelleActuelle = (volN * cppNActuel) + (volC * cppCActuel);
+            // Si le forfait de maintenance est renseigné, on l'utilise, sinon on calcule par les pages
+            const maintMensuelleActuelle = forfaitMaintActuel > 0 ? forfaitMaintActuel : ((volN * cppNActuel) + (volC * cppCActuel));
             const totalMensuelActuel = loyerMensuelActuel + maintMensuelleActuelle;
 
-            const restantDuBrut = loyerTrimActuel * trimRestants;
-            const restantDuNet = restantDuBrut * tauxRachat;
+            // Calcul précis du Restant Dû : (Loyers trimestriels restants convertis en mensuels x 3 mois + Maintenance résiduelle) + 10% de pénalités de rachat
+            const loyersRestantsBruts = loyerTrimActuel * trimRestants;
+            const maintRestanteBrute = maintMensuelleActuelle * (trimRestants * 3);
+            const totalRestantBrut = loyersRestantsBruts + maintRestanteBrute;
+            const restantDuAvecPenalites = totalRestantBrut * 1.10; // Majoration de 10% de pénalités de rachat
 
-            // 3. Calculs Situation Proposée (Simulation DEVELOP : -20% sur loyer et -15% sur les coûts à la page)
-            const loyerMensuelPropose = loyerMensuelActuel * 0.78;
-            const cppNPropose = cppNActuel * 0.85;
-            const cppCPropose = cppCActuel * 0.82;
-            const maintMensuelleProposee = (volN * cppNPropose) + (volC * cppCPropose);
+            // 3. Calculs Situation Proposée (Offre Marché DEVELOP cohérente : -21% sur le loyer, -18% sur le coût de revient page)
+            const loyerMensuelPropose = loyerMensuelActuel * 0.79;
+            const cppNPropose = cppNActuel * 0.82;
+            const cppCPropose = cppCActuel * 0.80;
+            const maintMensuelleProposee = forfaitMaintActuel > 0 ? (forfaitMaintActuel * 0.82) : ((volN * cppNPropose) + (volC * cppCPropose));
             const totalMensuelPropose = loyerMensuelPropose + maintMensuelleProposee;
 
             // 4. Gains
             const economieMensuelle = totalMensuelActuel - totalMensuelPropose;
             const economieAnnuelle = economieMensuelle * 12;
 
-            // 5. Affichage dynamique dans le tableau et les blocs
+            // 5. Affichage dynamique
             document.getElementById('disp-loyer-act').innerText = loyerMensuelActuel.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
             document.getElementById('disp-loyer-prop').innerText = loyerMensuelPropose.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
 
@@ -235,11 +236,25 @@
             document.getElementById('disp-total-act').innerHTML = '<strong>' + totalMensuelActuel.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €</strong>';
             document.getElementById('disp-total-prop').innerHTML = '<strong>' + totalMensuelPropose.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €</strong>';
 
-            document.getElementById('disp-restant-du').innerText = restantDuNet.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' € HT';
+            document.getElementById('disp-restant-du').innerText = restantDuAvecPenalites.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' € HT';
             document.getElementById('disp-gain-an').innerText = economieAnnuelle.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' € / an';
         }
 
-        // Lancement au chargement de la page
+        // Fonction pour transmettre les données du simulateur directement vers Tally via les paramètres d'URL
+        function ouvrirTallyAvecDonnees(e) {
+            e.preventDefault();
+            const baseUrl = "https://tally.so/r/GeK01Q";
+            
+            // Récupération des valeurs calculées à passer dans le formulaire Tally (si vos champs Tally possèdent ces paramètres cachés)
+            const budgetActuel = document.getElementById('disp-total-act').innerText;
+            const restantDu = document.getElementById('disp-restant-du').innerText;
+            const gainAn = document.getElementById('disp-gain-an').innerText;
+
+            const urlComplete = `${baseUrl}?budget_actuel=${encodeURIComponent(budgetActuel)}&restant_du=${encodeURIComponent(restantDu)}&gain_estime=${encodeURIComponent(gainAn)}`;
+            
+            window.open(urlComplete, '_blank');
+        }
+
         calculerTCO();
     </script>
 </body>
