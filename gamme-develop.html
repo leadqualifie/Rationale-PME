@@ -3,52 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamme DEVELOP | Optimisation Coût de Revient Rationale PME</title>
-</head>
-<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; background-color: #f8fafc; color: #0f172a; line-height: 1.6;">
+    <title>Gamme DEVELOP : A4, A3, Presse, Sécurité, RSE & Cloud IA | Rationale PME</title>
+    <meta name="description" content="Explorez en détail les 6 piliers de la gamme DEVELOP : multifonctions A4 et A3 couleur, presses numériques, sécurité ineo Secure, performance RSE et numérisation Cloud propulsée par IA.">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --accent-light: #dbeafe;
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --warning: #f59e0b;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --text: #334155;
+            --text-dark: #0f172a;
+        }
 
-    <header style="background-color: #ffffff; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 1000;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-            <a href="index.html" style="font-size: 1.6rem; font-weight: 900; color: #0f172a; text-decoration: none;">Rationale<span style="color: #2563eb;">PME</span></a>
-            <nav style="display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap;">
-                <a href="index.html" style="text-decoration: none; color: #475569; font-weight: 600;">Accueil</a>
-                <a href="tco.html" style="text-decoration: none; color: #475569; font-weight: 600;">Ingénierie TCO</a>
-                <a href="calculateur.html" style="text-decoration: none; color: #475569; font-weight: 600;">Simulateur TCO</a>
-                <a href="calculateur-it.html" style="text-decoration: none; color: #475569; font-weight: 600;">Simulateur IT & Cyber</a>
-                <a href="gamme-develop.html" style="text-decoration: none; color: #2563eb; font-weight: 700;">Matériel DEVELOP</a>
-                <a href="actualites.html" style="text-decoration: none; color: #475569; font-weight: 600;">Veille & Actualités (10)</a>
-                <a href="contact.html" style="background-color: #10b981; color: #ffffff; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; text-decoration: none;">Audit Gratuit</a>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: var(--bg-light); color: var(--text); line-height: 1.8; }
+
+        header { background-color: #ffffff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .logo { font-size: 1.6rem; font-weight: 900; color: var(--primary); text-decoration: none; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; color: #475569; font-weight: 600; font-size: 0.95rem; }
+        .btn-header { background-color: var(--success); color: #ffffff !important; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; text-decoration: none; }
+
+        .develop-hero { background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 58, 138, 0.9) 100%), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; color: #ffffff; padding: 6rem 1.5rem; text-align: center; }
+        .develop-hero h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 1rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .develop-hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 750px; margin: 0 auto; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 5rem 1.5rem; }
+        .section-title { font-size: 2.2rem; font-weight: 900; color: var(--text-dark); text-align: center; margin-bottom: 1rem; }
+        .section-subtitle { font-size: 1.1rem; color: #64748b; text-align: center; max-width: 750px; margin: 0 auto 4rem auto; }
+
+        /* STRUCTURE DES 6 BLOCS THÉMATIQUES AVEC EFFET DE SURVOL */
+        .pillar-section { background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border); padding: 3rem; margin-bottom: 3.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: center; transition: transform 0.2s, box-shadow 0.2s; }
+        .pillar-section:hover { transform: translateY(-3px); box-shadow: 0 12px 25px -8px rgba(0,0,0,0.08); }
+        @media (max-width: 900px) { .pillar-section { grid-template-columns: 1fr; } }
+        
+        .pillar-section.reverse { grid-template-columns: 1.2fr 1fr; }
+        @media (max-width: 900px) { .pillar-section.reverse { grid-template-columns: 1fr; } }
+
+        .pillar-content h2 { font-size: 1.8rem; color: var(--primary); font-weight: 900; margin-bottom: 1rem; }
+        .pillar-content p { margin-bottom: 1.2rem; color: var(--text); font-size: 1.02rem; }
+        
+        .image-wrapper { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 16px rgba(0,0,0,0.05); }
+        .pillar-img { width: 100%; height: 300px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+        .image-wrapper:hover .pillar-img { transform: scale(1.03); }
+
+        .feature-badge { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 0.4rem 1rem; border-radius: 6px; display: inline-block; margin-bottom: 1rem; }
+
+        .cta-banner { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #ffffff; text-align: center; padding: 5rem 1.5rem; border-radius: 16px; max-width: 1100px; margin: 5rem auto; box-shadow: 0 10px 25px rgba(15,23,42,0.2); }
+        .cta-banner h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem; }
+        .cta-banner p { font-size: 1.1rem; color: #cbd5e1; max-width: 650px; margin: 0 auto 2.5rem auto; }
+        .btn-cta-large { background-color: var(--success); color: #ffffff; font-size: 1.15rem; font-weight: 800; padding: 1rem 2.5rem; border-radius: 8px; text-decoration: none; display: inline-block; box-shadow: 0 4px 14px rgba(16,185,129,0.3); transition: background-color 0.2s; }
+        .btn-cta-large:hover { background-color: #059669; }
+
+        footer { background-color: #0f172a; color: #94a3b8; text-align: center; padding: 3rem 1.5rem; margin-top: 5rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Rationale<span>PME</span></a>
+            <nav class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="tco.html">Ingénierie TCO</a>
+                <a href="calculateur.html">Simulateur Impression</a>
+                <a href="calculateur-it.html">Simulateur IT & Cyber</a>
+                <a href="gamme-develop.html" style="color: var(--accent); font-weight: 700;">Matériel DEVELOP</a>
+                <a href="actualites.html">Veille & Actualités</a>
+                <a href="https://tally.so/r/GeK01Q" target="_blank" class="btn-header">Questionnaire Gratuit</a>
             </nav>
         </div>
     </header>
 
-    <section style="max-width: 1100px; margin: 4rem auto; padding: 0 1.5rem;">
-        <h1 style="font-size: 2.5rem; color: #0f172a; text-align: center; margin-bottom: 1rem;">Pourquoi Choisir les Systèmes DEVELOP (ineo) ?</h1>
-        <p style="text-align: center; color: #475569; max-width: 800px; margin: 0 auto 3rem auto; font-size: 1.1rem;">
-            Développés sous l'ingénierie de pointe du groupe Konica Minolta, les systèmes imprimants et multifonctions DEVELOP ineo offrent le meilleur ratio coût de revient / durabilité du marché PME.
-        </p>
+    <div class="develop-hero">
+        <h1>Les 6 Piliers de la Gamme DEVELOP</h1>
+        <p>Explorez notre offre structurée pour répondre aux exigences des PME et ETI : performance A4/A3, presses graphiques, sécurité ineo Secure, engagement RSE et numérisation Cloud intelligente par IA.</p>
+    </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
-            <div style="background: #ffffff; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
-                <span style="color: #2563eb; font-weight: 800; text-transform: uppercase; font-size: 0.8rem;">Gamme A3 Couleur / Noir</span>
-                <h3 style="font-size: 1.3rem; margin: 0.5rem 0;">DEVELOP ineo+ 250i / 300i / 360i</h3>
-                <p style="font-size: 0.95rem; color: #475569;">Systèmes multifonctions conçus pour les volumes moyens à élevés. Ils minimisent le coût de revient grâce à des tambours longue durée et un toner Simitri HD basse température.</p>
+    <main class="container">
+
+        <!-- 1. A4 COULEUR -->
+        <div class="pillar-section">
+            <div class="pillar-content">
+                <span class="feature-badge">Pilier 1 : Bureautique</span>
+                <h2>Multifonctions A4 Couleur</h2>
+                <p>Compactes, puissantes et conçues pour s'intégrer parfaitement dans les espaces restreints, les imprimantes et multifonctions A4 couleur de la gamme DEVELOP offrent une qualité d'impression irréprochable sans compromis sur la vitesse.</p>
+                <p>Elles conviennent parfaitement les petits groupes de travail, les agences et les comptoirs nécessitant des impressions couleur éclatantes au quotidien. Leur coût global d'exploitation maîtrisé en fait un choix stratégique pour réduire l'empreinte matérielle sur les postes décentralisés.</p>
             </div>
-            <div style="background: #ffffff; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
-                <span style="color: #2563eb; font-weight: 800; text-transform: uppercase; font-size: 0.8rem;">Gamme Compacte A4</span>
-                <h3 style="font-size: 1.3rem; margin: 0.5rem 0;">DEVELOP ineo 3320i / 4050i</h3>
-                <p style="font-size: 0.95rem; color: #475569;">L'excellence du coût à la page pour les espaces réduits ou les équipes décentralisées, avec intégration réseau et sécurité de niveau entreprise.</p>
-            </div>
-            <div style="background: #ffffff; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
-                <span style="color: #2563eb; font-weight: 800; text-transform: uppercase; font-size: 0.8rem;">Sécurité Avancée</span>
-                <h3 style="font-size: 1.3rem; margin: 0.5rem 0;">Option Bitdefender Integrated</h3>
-                <p style="font-size: 0.95rem; color: #475569;">Les équipements DEVELOP embarquent l'antivirus Bitdefender pour analyser en temps réel tous les documents entrant ou sortant du réseau d'entreprise.</p>
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=800&q=80" alt="Multifonction A4 Couleur DEVELOP" class="pillar-img">
             </div>
         </div>
-    </section>
 
-    <footer style="background-color: #0f172a; color: #94a3b8; text-align: center; padding: 3rem 1.5rem; margin-top: 4rem;">
-        <p>&copy; 2026 Rationale PME — Tous droits réservés.</p>
+        <!-- 2. A3 COULEUR -->
+        <div class="pillar-section reverse">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Multifonction A3 Couleur DEVELOP" class="pillar-img">
+            </div>
+            <div class="pillar-content">
+                <span class="feature-badge">Pilier 2 : Cœur de Flotte</span>
+                <h2>Multifonctions A3 Couleur</h2>
+                <p>Véritables piliers de la productivité en entreprise, les systèmes multifonctions A3 ineo+ de DEVELOP centralisent l'ensemble des flux documentaires des départements (administratif, commercial, comptabilité).</p>
+                <p>Dotés d'une grande robustesse mécanique, d'une autonomie papier modulable et de finitions professionnelles (agrafage, pliage, livret), ils garantissent un coût de revient à la page extrêmement bas et une fiabilité opérationnelle sur le long terme pour les PME en croissance.</p>
+            </div>
+        </div>
+
+        <!-- 3. PRESSE NUMÉBRIQUE -->
+        <div class="pillar-section">
+            <div class="pillar-content">
+                <span class="feature-badge">Pilier 3 : Arts Graphiques</span>
+                <h2>Presses Numériques Haute Production</h2>
+                <p>Pour les imprimeries intégrées, les services communication et les entreprises exigeant une qualité d'impression digne des professionnels des arts graphiques, la gamme AccurioPress de DEVELOP repousse les limites de la production.</p>
+                <p>Capables d'imprimer à haute cadence sur des supports à fort grammage (jusqu'à 350g/m²) avec une colorimétrie ultra-précise et des contrôleurs de flux avancés, ces presses permettent d'internaliser la fabrication de supports marketing complexes avec une rentabilité maximale.</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1562577309-4932f164fdee?auto=format&fit=crop&w=800&q=80" alt="Presse Numérique DEVELOP" class="pillar-img">
+            </div>
+        </div>
+
+        <!-- 4. SÉCURITÉ INEO SECURE -->
+        <div class="pillar-section reverse">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Sécurité Informatique ineo Secure" class="pillar-img">
+            </div>
+            <div class="pillar-content">
+                <span class="feature-badge">Pilier 4 : Protection des Données</span>
+                <h2>Sécurité Avancée : ineo Secure</h2>
+                <p>Parce qu'un multifonction moderne est un équipement connecté qui stocke et traite des informations sensibles, la sécurité ne doit jamais être optionnelle. L'option <strong>ineo Secure</strong> protège activement votre infrastructure contre les cybermenaces.</p>
+                <p>Elle intègre le chiffrement strict des données sur disque dur, la purge automatique des travaux après impression, un antivirus Bitdefender actif en temps réel et la gestion des accès par badge (Follow-Me) pour éliminer tout risque de fuite documentaire.</p>
+            </div>
+        </div>
+
+        <!-- 5. ENVIRONNEMENT & RSE -->
+        <div class="pillar-section">
+            <div class="pillar-content">
+                <span class="feature-badge">Pilier 5 : Transition Écologique</span>
+                <h2>Environnement & Performance RSE</h2>
+                <p>DEVELOP intègre l'éco-conception au cœur de sa fabrication. Les équipements réduisent drastiquement la consommation énergétique grâce à un mode veille intelligent et des technologies de fusion à basse température.</p>
+                <p>L'utilisation de toners polymérisés d'origine végétale et la diminution des rejets de CO2 permettent aux entreprises d'honorer leurs engagements RSE tout en réalisant des économies substantielles sur leur facture électrique annuelle.</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Environnement et RSE DEVELOP" class="pillar-img">
+            </div>
+        </div>
+
+        <!-- 6. SCAN & CLOUD FACILE AVEC COUCHE IA -->
+        <div class="pillar-section reverse">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Scan Cloud et IA DEVELOP" class="pillar-img">
+            </div>
+            <div class="pillar-content">
+                <span class="feature-badge">Pilier 6 : Productivité Numérique</span>
+                <h2>Simplicité Scan & Cloud avec Couche IA</h2>
+                <p>L'ergonomie des écrans tactiles grand format offre une prise en main immédiate. Vos collaborateurs peuvent numériser et envoyer leurs documents directement vers les espaces Cloud de l'entreprise (OneDrive, SharePoint, Google Drive) en un clic, <strong>sans aucun abonnement additionnel</strong>.</p>
+                <p><strong>Intelligence Artificielle intégrée :</strong> Une couche d'IA optionnelle analyse à la volée les flux de numérisation pour assurer une reconnaissance de caractères (OCR intelligent), une classification automatique des pièces comptables et une indexation sémantique prête pour votre GED (KomiDoc).</p>
+            </div>
+        </div>
+
+    </main>
+
+    <div style="padding: 0 1.5rem;">
+        <div class="cta-banner">
+            <h2>Trouvez la configuration DEVELOP idéale pour votre structure</h2>
+            <p>Utilisez notre simulateur financier pour comparer vos coûts actuels avec un parc optimisé sur-mesure.</p>
+            <a href="calculateur.html" class="btn-cta-large">Lancer le Simulateur TCO</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Rationale PME — Partenaire Conseil & Solutions Matériel DEVELOP. Tous droits réservés.</p>
     </footer>
+
 </body>
 </html>
