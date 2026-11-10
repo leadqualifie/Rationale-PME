@@ -3,65 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rationale PME | Audit TCO, Impression & Cybersécurité</title>
-    <meta name="description" content="Accompagnement indépendant pour PME. Réduction du TCO d'impression, intégration de la gamme DEVELOP et sécurisation IT.">
-</head>
-<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; background-color: #f8fafc; color: #0f172a; line-height: 1.6;">
+    <title>Rationale PME | Tiers de Confiance TCO, Impression & Cybersécurité</title>
+    <meta name="description" content="Cabinet de conseil indépendant en Île-de-France. Réduisez le TCO d'impression de votre PME, intégrez la gamme DEVELOP et sécurisez votre infrastructure.">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --accent-light: #dbeafe;
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --warning: #f59e0b;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --text: #334155;
+            --text-dark: #0f172a;
+        }
 
-    <!-- HEADER / NAVIGATION -->
-    <header style="background-color: #ffffff; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 1000;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-            <a href="index.html" style="font-size: 1.6rem; font-weight: 900; color: #0f172a; text-decoration: none;">Rationale<span style="color: #2563eb;">PME</span></a>
-            <nav style="display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap;">
-    <a href="index.html" style="text-decoration: none; color: #475569; font-weight: 600;">Accueil</a>
-    <a href="tco.html" style="text-decoration: none; color: #475569; font-weight: 600;">Ingénierie TCO</a>
-    <a href="calculateur.html" style="text-decoration: none; color: #475569; font-weight: 600;">Simulateur TCO</a>
-    <a href="gamme-develop.html" style="text-decoration: none; color: #475569; font-weight: 600;">Matériel DEVELOP</a>
-    <a href="actualites.html" style="text-decoration: none; color: #475569; font-weight: 600;">Veille & Actualités</a>
-    <a href="https://tally.so/r/GeK01Q" target="_blank" style="background-color: #10b981; color: #ffffff; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; text-decoration: none;">Questionnaire Gratuit</a>
-</nav>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: var(--bg-light); color: var(--text); line-height: 1.7; }
+
+        /* HEADER */
+        header { background-color: #ffffff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .logo { font-size: 1.6rem; font-weight: 900; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; color: #475569; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent); }
+        .btn-header { background-color: var(--success); color: #ffffff !important; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; text-decoration: none; box-shadow: 0 2px 6px rgba(16,185,129,0.2); }
+
+        /* HERO SECTION AVEC IMAGE DE FOND ET OVERLAY */
+        .hero { 
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 58, 138, 0.9) 100%), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: #ffffff; 
+            padding: 6rem 1.5rem; 
+            text-align: center; 
+        }
+        .hero-badge { background: rgba(37, 99, 235, 0.25); color: #93c5fd; padding: 0.4rem 1.2rem; border-radius: 20px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; border: 1px solid rgba(147, 197, 253, 0.3); display: inline-block; margin-bottom: 1.5rem; letter-spacing: 0.5px; }
+        .hero h1 { font-size: 2.8rem; font-weight: 900; line-height: 1.2; max-width: 900px; margin: 0 auto 1.5rem auto; }
+        .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 750px; margin: 0 auto 2.5rem auto; }
+        .hero-cta { display: inline-block; background-color: var(--success); color: #ffffff; font-size: 1.15rem; font-weight: 800; padding: 1rem 2.5rem; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35); transition: transform 0.2s, background-color 0.2s; }
+        .hero-cta:hover { background-color: #059669; transform: translateY(-2px); }
+
+        /* CHIFFRES CLÉS (SOCIAL PROOF) */
+        .stats-bar { background: #ffffff; border-bottom: 1px solid var(--border); padding: 2.5rem 1.5rem; }
+        .stats-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; text-align: center; }
+        .stat-item h3 { font-size: 2.2rem; font-weight: 900; color: var(--accent); margin-bottom: 0.3rem; }
+        .stat-item p { font-size: 0.9rem; color: #64748b; font-weight: 600; }
+
+        /* SECTION CONTAINERS */
+        .container { max-width: 1200px; margin: 0 auto; padding: 5rem 1.5rem; }
+        .section-title { font-size: 2.2rem; font-weight: 900; color: var(--text-dark); text-align: center; margin-bottom: 1rem; }
+        .section-subtitle { font-size: 1.1rem; color: #64748b; text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto; }
+
+        /* PILIERS D'EXPERTISE */
+        .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+        .pillar-card { background: var(--card-bg); padding: 2.5rem 2rem; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); transition: transform 0.2s, box-shadow 0.2s; }
+        .pillar-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px -5px rgba(0,0,0,0.05); }
+        .pillar-icon { font-size: 2rem; margin-bottom: 1rem; display: inline-block; }
+        .pillar-card h3 { color: var(--primary); font-size: 1.25rem; font-weight: 800; margin-bottom: 0.8rem; }
+        .pillar-card p { font-size: 0.95rem; color: #64748b; margin-bottom: 1.5rem; }
+        .pillar-link { color: var(--accent); font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+
+        /* SECTION CAS CLIENTS (PROBLÉMATIQUES RÉSOLUES) */
+        .cases-section { background: #f1f5f9; padding: 5rem 1.5rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .cases-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2.5rem; }
+        .case-card { background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .case-img { width: 100%; height: 180px; object-fit: cover; }
+        .case-content { padding: 2rem; }
+        .case-tag { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 0.3rem 0.8rem; border-radius: 6px; display: inline-block; margin-bottom: 1rem; }
+        .case-card h3 { font-size: 1.25rem; font-weight: 800; color: var(--primary); margin-bottom: 0.8rem; }
+        .case-card p { font-size: 0.95rem; color: #64748b; margin-bottom: 1.2rem; }
+        .case-result { background: var(--success-light); color: #065f46; padding: 0.8rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem; }
+
+        /* BANDEAU APPEL À L'ACTION FINAL */
+        .cta-banner { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #ffffff; text-align: center; padding: 5rem 1.5rem; border-radius: 16px; max-width: 1100px; margin: 5rem auto; box-shadow: 0 10px 25px rgba(15,23,42,0.2); }
+        .cta-banner h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 1rem; }
+        .cta-banner p { font-size: 1.1rem; color: #cbd5e1; max-width: 650px; margin: 0 auto 2.5rem auto; }
+        .btn-cta-large { background-color: var(--success); color: #ffffff; font-size: 1.15rem; font-weight: 800; padding: 1rem 2.5rem; border-radius: 8px; text-decoration: none; display: inline-block; box-shadow: 0 4px 14px rgba(16,185,129,0.3); transition: background-color 0.2s; }
+        .btn-cta-large:hover { background-color: #059669; }
+
+        footer { background-color: #0f172a; color: #94a3b8; text-align: center; padding: 3rem 1.5rem; }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Rationale<span>PME</span></a>
+            <nav class="nav-links">
+                <a href="index.html" style="color: var(--accent); font-weight: 700;">Accueil</a>
+                <a href="tco.html">Ingénierie TCO</a>
+                <a href="gamme-develop.html">Matériel DEVELOP</a>
+                <a href="calculateur.html">Simulateur TCO</a>
+                <a href="actualites.html">Veille & Actualités</a>
+                <a href="https://tally.so/r/GeK01Q" target="_blank" class="btn-header">Questionnaire Gratuit</a>
+            </nav>
         </div>
     </header>
 
     <!-- HERO SECTION -->
-    <section style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #ffffff; padding: 5rem 1.5rem; text-align: center;">
-        <div style="max-width: 900px; margin: 0 auto;">
-            <span style="background: rgba(37, 99, 235, 0.2); color: #93c5fd; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; border: 1px solid rgba(147, 197, 253, 0.3); display: inline-block; margin-bottom: 1.5rem;">Tiers de confiance indépendant PME</span>
-            <h1 style="font-size: 2.6rem; font-weight: 900; line-height: 1.2; margin-bottom: 1.5rem;">Optimisez votre TCO d'Impression & Sécurisez votre IT</h1>
-            <p style="font-size: 1.2rem; color: #cbd5e1; margin-bottom: 2.5rem;">Audit indépendant, sélection des meilleurs équipements DEVELOP pour baisser le coût de revient à la page, conformité RSE et cybersécurité avancée.</p>
-            <a href="contact.html" style="display: inline-block; background-color: #10b981; color: #ffffff; font-size: 1.1rem; font-weight: 700; padding: 1rem 2.2rem; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);">Obtenir une étude financière personnalisée</a>
+    <section class="hero">
+        <div>
+            <span class="hero-badge">Tiers de Confiance Indépendant PME / ETI</span>
+            <h1>Maîtrisez votre TCO d'Impression & Sécurisez votre Infrastructure IT</h1>
+            <p>Optimisez vos coûts documentaires, intégrez la performance des systèmes DEVELOP (Konica Minolta) et bénéficiez d'un audit neutre de vos contrats en Île-de-France.</p>
+            <a href="calculateur.html" class="hero-cta">Lancer le Simulateur & Calculateur TCO →</a>
         </div>
     </section>
 
-    <!-- RÉSUMÉ DES PILES D'EXPERTISE -->
-    <section style="max-width: 1200px; margin: 0 auto; padding: 5rem 1.5rem;">
-        <h2 style="font-size: 2.2rem; text-align: center; margin-bottom: 3rem;">Nos 4 Piliers d'Intervention pour PME</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
-            <div style="background: #ffffff; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
-                <h3 style="color: #2563eb; margin-bottom: 0.8rem;">1. Ingénierie TCO</h3>
-                <p style="font-size: 0.95rem; color: #475569;">Analyse poussée du coût global de possession : loyers, coût à la page, facturation cachée et volumes d'impression réels.</p>
-                <a href="tco.html" style="color: #2563eb; font-weight: 700; text-decoration: none; display: inline-block; margin-top: 1rem;">Comprendre le TCO →</a>
+    <!-- CHIFFRES CLÉS / SOCIAL PROOF -->
+    <div class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>-22%</h3>
+                <p>D'économie moyenne constatée sur les parcs audités</p>
             </div>
-            <div style="background: #ffffff; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
-                <h3 style="color: #2563eb; margin-bottom: 0.8rem;">2. Performance DEVELOP</h3>
-                <p style="font-size: 0.95rem; color: #475569;">Sélection des systèmes ineo (A3/A4) pour obtenir les coûts de revient au document les plus compétitifs du marché.</p>
-                <a href="gamme-develop.html" style="color: #2563eb; font-weight: 700; text-decoration: none; display: inline-block; margin-top: 1rem;">Découvrir les systèmes →</a>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Indépendant des constructeurs et loueurs</p>
             </div>
-            <div style="background: #ffffff; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
-                <h3 style="color: #2563eb; margin-bottom: 0.8rem;">3. Cybersécurité IT</h3>
-                <p style="font-size: 0.95rem; color: #475569;">Protection des contrôleurs d'impression, chiffrement des disques durs internes et verrouillage des accès réseau.</p>
-                <a href="actualites.html" style="color: #2563eb; font-weight: 700; text-decoration: none; display: inline-block; margin-top: 1rem;">Lire le dossier Cyber →</a>
+            <div class="stat-item">
+                <h3>48h</h3>
+                <p>Délai pour recevoir votre simulation d'économies</p>
             </div>
-            <div style="background: #ffffff; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
-                <h3 style="color: #2563eb; margin-bottom: 0.8rem;">4. Engagement RSE</h3>
-                <p style="font-size: 0.95rem; color: #475569;">Consommations électriques réduites, toners polymérisés à basse température et gestion du recyclage certifié.</p>
-                <a href="actualites.html" style="color: #2563eb; font-weight: 700; text-decoration: none; display: inline-block; margin-top: 1rem;">Voir l'impact RSE →</a>
+            <div class="stat-item">
+                <h3>+10 ans</h3>
+                <p>D'expertise en optimisation documentaire et GED</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOS PILIERS D'EXPERTISE -->
+    <section class="container">
+        <h2 class="section-title">Notre Accompagnement sur-mesure</h2>
+        <p class="section-subtitle">Une approche globale axée sur la performance financière, la sécurité des réseaux et la transition écologique de votre PME.</p>
+        
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <span class="pillar-icon">📊</span>
+                <h3>Ingénierie TCO & Contrats</h3>
+                <p>Analyse granulaire des loyers, des coûts à la page et des clauses cachées. Maîtrisez l'impact de votre restant dû (soulte).</p>
+                <a href="tco.html" class="pillar-link">Découvrir l'ingénierie TCO →</a>
+            </div>
+            <div class="pillar-card">
+                <span class="pillar-icon">🖨️</span>
+                <h3>Partenaire Gamme DEVELOP</h3>
+                <p>Sélection des multifonctions ineo (A3/A4) pour obtenir le coût de revient au document le plus bas du marché PME.</p>
+                <a href="gamme-develop.html" class="pillar-link">Explorer les matériels DEVELOP →</a>
+            </div>
+            <div class="pillar-card">
+                <span class="pillar-icon">🔒</span>
+                <h3>Sécurité & Cybersécurité IT</h3>
+                <p>Protection des disques durs d'impression, firmwares sécurisés avec Bitdefender intégré et authentification par badge.</p>
+                <a href="actualites.html" class="pillar-link">Lire nos dossiers cyber →</a>
+            </div>
+            <div class="pillar-card">
+                <span class="pillar-icon">🌱</span>
+                <h3>Conformité RSE & GED</h3>
+                <p>Réduction de l'empreinte énergétique, toners polymérisés basse température et automatisation de la facture électronique.</p>
+                <a href="calculateur.html" class="pillar-link">Tester le simulateur financier →</a>
             </div>
         </div>
     </section>
 
-    <footer style="background-color: #0f172a; color: #94a3b8; text-align: center; padding: 3rem 1.5rem; margin-top: 4rem;">
-        <p>&copy; 2026 Rationale PME — Indépendant & Optimisation d'Infrastructure. Tous droits réservés.</p>
+    <!-- CAS CLIENTS (PROBLÉMATIQUES RÉSOLUES) -->
+    <section class="cases-section">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">Problématiques d'Entreprises Résolues</h2>
+            <p class="section-subtitle">Découvrez comment nos interventions ont transformé la gestion documentaire de nos clients.</p>
+            
+            <div class="cases-grid">
+                <!-- Cas 1 -->
+                <div class="case-card">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="PME Industrie" class="case-img">
+                    <div class="case-content">
+                        <span class="case-tag">Secteur Négoce & Industrie (91)</span>
+                        <h3>Sortie anticipée d'un bail rigide et surfacturé</h3>
+                        <p>Une PME industrielle bloquée par un contrat de location de 5 ans avec des volumes minimums non consommés et des pénalités opaques.</p>
+                        <div class="case-result">✓ Résultat : 14 500 € d'économie lissés et migration vers DEVELOP ineo+.</div>
+                    </div>
+                </div>
+
+                <!-- Cas 2 -->
+                <div class="case-card">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80" alt="Cabinet de services" class="case-img">
+                    <div class="case-content">
+                        <span class="case-tag">Cabinet de Services (75 / 94)</span>
+                        <h3>Sécurisation des impressions sensibles et RGPD</h3>
+                        <p>Risque de fuite de données sur des bulletins de paie et contrats clients laissés sans surveillance dans les bacs de sortie.</p>
+                        <div class="case-result">✓ Résultat : Déploiement de l'impression Follow-Me par badge et -12% de gaspillage.</div>
+                    </div>
+                </div>
+
+                <!-- Cas 3 -->
+                <div class="case-card">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Audit financier" class="case-img">
+                    <div class="case-content">
+                        <span class="case-tag">Entreprise de Services du Numérique (02)</span>
+                        <h3>Optimisation du TCO et passage à la facture électronique</h3>
+                        <p>Parc hétérogène d'imprimantes de bureau achetées au détail sans vision centralisée ni maîtrise des coûts à la page.</p>
+                        <div class="case-result">✓ Résultat : Refonte globale du parc, baisse du TCO de 24% et intégration GED.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANDEAU CTA FINAL -->
+    <div style="padding: 0 1.5rem;">
+        <div class="cta-banner">
+            <h2>Prêt à évaluer le potentiel d'optimisation de votre parc ?</h2>
+            <p>Utilisez notre simulateur interactif pour calculer votre restant dû et vos gains potentiels, ou remplissez directement notre questionnaire d'évaluation.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="calculateur.html" class="btn-cta-large" style="background-color: var(--accent);">Accéder au Simulateur TCO</a>
+                <a href="https://tally.so/r/GeK01Q" target="_blank" class="btn-cta-large">Remplir le Questionnaire Tally</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Rationale PME — Cabinet indépendant d'ingénierie et de conseil en infrastructure documentaire. Tous droits réservés.</p>
     </footer>
+
 </body>
 </html>
