@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulateur TCO & Analyse du Restant Dû | Rationale PME</title>
-    <meta name="description" content="Simulateur financier PME : calculez votre restant dû (Loyers + Maintenance + 10% pénalités) et comparez avec une solution DEVELOP optimisée.">
+    <meta name="description" content="Simulateur financier PME : calcul précis du loyer (matériel + restant dû x 2%) et de la maintenance (0.0035€ NB / 0.035€ Coul).">
     <style>
         :root {
             --primary: #0f172a;
@@ -83,8 +83,8 @@
     </header>
 
     <div class="calculator-container">
-        <h1 class="calc-title">Simulateur TCO & Analyse du Restant Dû</h1>
-        <p class="calc-subtitle">Renseignez vos paramètres, choisissez entre un calcul par volume ou par forfait de maintenance, puis validez pour afficher le bilan comparatif.</p>
+        <h1 class="calc-title">Simulateur TCO & Intégration du Restant Dû</h1>
+        <p class="calc-subtitle">Paramétrez votre parc, calculez le restant dû avec pénalités, et simulez la solution DEVELOP (Matériel A3/A4 + rachat lissé à 2% + maintenance au réel).</p>
 
         <div class="calc-grid">
             <!-- 1. PARAMÈTRES DE LA SITUATION ACTUELLE -->
@@ -107,17 +107,16 @@
                     <input type="number" id="loyer-actuel" value="1500" step="50">
                 </div>
 
-                <div class="panel-header" style="font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 1rem;">Mode de Calcul de la Maintenance Actuelle</div>
-                
+                <div class="panel-header" style="font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 1rem;">Maintenance Actuelle</div>
                 <div class="form-group">
                     <label for="mode-maint">Méthode d'évaluation</label>
                     <select id="mode-maint" onchange="changerModeCalcul()">
-                        <option value="volumes" selected>Calcul automatique par volume (Pages x Coût page)</option>
+                        <option value="volumes" selected>Calcul par volume (Pages x Coût page)</option>
                         <option value="forfait">Forfait de maintenance mensuel fixe (€)</option>
                     </select>
                 </div>
 
-                <!-- Section Volumes / Coût page -->
+                <!-- Section Volumes / Coût page actuels -->
                 <div id="bloc-volumes">
                     <div class="form-row">
                         <div class="form-group">
@@ -142,7 +141,7 @@
                     </div>
                 </div>
 
-                <!-- Section Forfait Fixe -->
+                <!-- Section Forfait Fixe Actuel -->
                 <div id="bloc-forfait" style="display: none;">
                     <div class="form-group">
                         <label for="forfait-maint-saisi">Montant du forfait de maintenance mensuel HT (€)</label>
@@ -150,7 +149,7 @@
                     </div>
                 </div>
 
-                <div class="panel-header" style="font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 1rem;">Engagement & Restant Dû (Loyers + Maint. + 10% Pénalités)</div>
+                <div class="panel-header" style="font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 1rem;">Engagement & Restant Dû</div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="loy-restants">Trimestres restants du contrat</label>
@@ -165,7 +164,7 @@
             <!-- 2. RÉSULTATS & SITUATION PROPOSÉE -->
             <div class="results-panel">
                 <div>
-                    <div class="results-header">2. Bilan & Situation Proposée (DEVELOP)</div>
+                    <div class="results-header">2. Bilan & Solution Proposée (DEVELOP)</div>
 
                     <table class="comparison-table">
                         <thead>
@@ -177,12 +176,12 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Loyer Mensuel Équivalent</td>
+                                <td>Loyer Mensuel (Matériel + Restant Dû)</td>
                                 <td id="disp-loyer-act">500,00 €</td>
                                 <td id="disp-loyer-prop">390,00 €</td>
                             </tr>
                             <tr>
-                                <td>Maintenance (Mensuelle)</td>
+                                <td>Maintenance (0,0035€ NB / 0,035€ Coul)</td>
                                 <td id="disp-maint-act">340,00 €</td>
                                 <td id="disp-maint-prop">260,00 €</td>
                             </tr>
@@ -200,7 +199,7 @@
                     </div>
 
                     <div class="result-highlight">
-                        <div class="result-highlight-title">Gain net annuel estimé (TCO Marché ~22%)</div>
+                        <div class="result-highlight-title">Gain net annuel estimé</div>
                         <div class="result-highlight-amount" id="disp-gain-an">2 275,20 € / an</div>
                     </div>
                 </div>
@@ -208,7 +207,7 @@
                 <div>
                     <!-- Bouton de transmission vers Tally -->
                     <a href="#" id="tally-btn" target="_blank" class="btn-action" onclick="ouvrirTallyAvecDonnees(event)">Transmettre ce bilan via le questionnaire →</a>
-                    <p style="text-align: center; font-size: 0.78rem; color: #94a3b8; margin-top: 0.8rem;">Vos données de simulation seront transmises au format sécurisé.</p>
+                    <p style="text-align: center; font-size: 0.78rem; color: #94a3b8; margin-top: 0.8rem;">Transmission sécurisée des données de simulation.</p>
                 </div>
             </div>
         </div>
@@ -228,14 +227,17 @@
 
         function calculerTCO() {
             // 1. Récupération des entrées
+            const nbA3 = parseFloat(document.getElementById('nb-a3').value) || 0;
+            const nbA4 = parseFloat(document.getElementById('nb-a4').value) || 0;
             const loyerTrimActuel = parseFloat(document.getElementById('loyer-actuel').value) || 0;
-            const modeMaint = document.getElementById('mode-maint').value;
             
+            const modeMaint = document.getElementById('mode-maint').value;
             let maintMensuelleActuelle = 0;
+            const volN = parseFloat(document.getElementById('vol-n').value) || 0;
+            const volC = parseFloat(document.getElementById('vol-c').value) || 0;
+
             if (modeMaint === 'volumes') {
-                const volN = parseFloat(document.getElementById('vol-n').value) || 0;
                 const cppN = parseFloat(document.getElementById('cpp-n').value) || 0;
-                const volC = parseFloat(document.getElementById('vol-c').value) || 0;
                 const cppC = parseFloat(document.getElementById('cpp-c').value) || 0;
                 maintMensuelleActuelle = (volN * cppN) + (volC * cppC);
             } else {
@@ -248,15 +250,25 @@
             const loyerMensuelActuel = loyerTrimActuel / 3;
             const totalMensuelActuel = loyerMensuelActuel + maintMensuelleActuelle;
 
-            // Calcul précis du Restant Dû : (Loyers trimestriels restants + Maintenance résiduelle sur la période) + 10% de pénalités
+            // Restant dû : (Loyers trimestriels restants + Maintenance résiduelle) + 10% de pénalités
             const loyersRestantsBruts = loyerTrimActuel * trimRestants;
             const maintRestanteBrute = maintMensuelleActuelle * (trimRestants * 3);
             const totalRestantBrut = loyersRestantsBruts + maintRestanteBrute;
-            const restantDuAvecPenalites = totalRestantBrut * 1.10; // Majoration de 10% de pénalités
+            const restantDuAvecPenalites = totalRestantBrut * 1.10; // +10% pénalités
 
-            // 3. Calculs Situation Proposée (Offre Marché DEVELOP : -21% loyer, -18% maintenance)
-            const loyerMensuelPropose = loyerMensuelActuel * 0.79;
-            const maintMensuelleProposee = maintMensuelleActuelle * 0.82;
+            // 3. Calculs Situation Proposée (DEVELOP)
+            // Valeur d'investissement du nouveau matériel : A3 à 3000€, A4 à 1600€
+            const valeurMaterielPropose = (nbA3 * 3000) + (nbA4 * 1600);
+            
+            // Capital total à financer sur 5 ans = Valeur du matériel + Restant dû intégré
+            const capitalTotalFinancer = valeurMaterielPropose + restantDuAvecPenalites;
+            
+            // Loyer mensuel proposé = Capital total x 2% (pour 5 ans)
+            const loyerMensuelPropose = capitalTotalFinancer * 0.02;
+
+            // Maintenance proposée au volume avec vos nouveaux tarifs : 0.0035€ NB et 0.035€ Couleur
+            const maintMensuelleProposee = (volN * 0.0035) + (volC * 0.035);
+
             const totalMensuelPropose = loyerMensuelPropose + maintMensuelleProposee;
 
             // 4. Gains
