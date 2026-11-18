@@ -50,8 +50,13 @@
         .pillar-content h2 { font-size: 1.8rem; color: var(--primary); font-weight: 900; margin-bottom: 1rem; }
         .pillar-content p { margin-bottom: 1.2rem; color: var(--text); font-size: 1.02rem; }
         
-        .image-wrapper { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 16px rgba(0,0,0,0.05); }
-        .pillar-img { width: 100%; height: 300px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+        .pillar-list { list-style: none; margin-top: 1rem; margin-bottom: 1.2rem; padding: 1rem 1.2rem; background: #f8fafc; border-radius: 10px; border: 1px solid var(--border); }
+        .pillar-list li { font-size: 0.94rem; color: var(--text-dark); margin-bottom: 0.6rem; padding-left: 1.4rem; position: relative; }
+        .pillar-list li:last-child { margin-bottom: 0; }
+        .pillar-list li::before { content: "▸"; color: var(--accent); font-weight: 900; position: absolute; left: 0; }
+
+        .image-wrapper { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 16px rgba(0,0,0,0.05); background: #f1f5f9; display: flex; align-items: center; justify-content: center; }
+        .pillar-img { width: 100%; height: 320px; object-fit: contain; padding: 1rem; display: block; transition: transform 0.4s ease; background: #ffffff; }
         .image-wrapper:hover .pillar-img { transform: scale(1.03); }
 
         .feature-badge { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 0.4rem 1rem; border-radius: 6px; display: inline-block; margin-bottom: 1rem; }
@@ -89,23 +94,26 @@
 
     <main class="container">
 
-        <!-- 1. A4 COULEUR -->
+        <!-- 1. A4 COULEUR (STANDARD VS DUAL SCAN HAUTE PRODUCTIVITÉ) -->
         <div class="pillar-section">
             <div class="pillar-content">
-                <span class="feature-badge">Pilier 1 : Bureautique</span>
-                <h2>Multifonctions A4 Couleur</h2>
-                <p>Compactes, puissantes et conçues pour s'intégrer parfaitement dans les espaces restreints, les imprimantes et multifonctions A4 couleur de la gamme DEVELOP offrent une qualité d'impression irréprochable sans compromis sur la vitesse.</p>
-                <p>Elles conviennent parfaitement les petits groupes de travail, les agences et les comptoirs nécessitant des impressions couleur éclatantes au quotidien. Leur coût global d'exploitation maîtrisé en fait un choix stratégique pour réduire l'empreinte matérielle sur les postes décentralisés.</p>
+                <span class="feature-badge">Pilier 1 : Bureautique A4</span>
+                <h2>Multifonctions A4 Couleur : Polyvalence & Haute Productivité</h2>
+                <p>Compacts, silencieux et dotés du même écran tactile intuitif que les grands systèmes départementaux, les multifonctions A4 couleur DEVELOP s'intègrent aussi bien en agence de proximité qu'au cœur des services administratifs. Nous dimensionnons le matériel selon l'intensité de vos flux :</p>
+                <ul class="pillar-list">
+                    <li><strong>Configuration Polyvalente (type ineo+ 3321) :</strong> Idéale pour les petits groupes de travail et comptoirs avec chargeur recto-verso automatique (RADF) pour les numérisations ponctuelles et une capacité papier évolutive jusqu'à 1 100 feuilles.</li>
+                    <li><strong>Configuration Haute Productivité (type ineo+ 3351) :</strong> Conçue pour les services comptables et administratifs exigeants, intégrant un chargeur <strong>Dual Scan simultané</strong> (numérisation des deux faces en un seul passage à haute vitesse), une autonomie papier portée à 1 600 feuilles et un stockage SSD optionnel pour les workflows GED intensifs.</li>
+                </ul>
             </div>
             <div class="image-wrapper">
-                <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=800&q=80" alt="Multifonction A4 Couleur DEVELOP" class="pillar-img">
+                <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=800&q=80" alt="Multifonction DEVELOP A4 ineo+" class="pillar-img">
             </div>
         </div>
 
         <!-- 2. A3 COULEUR -->
         <div class="pillar-section reverse">
             <div class="image-wrapper">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Multifonction A3 Couleur DEVELOP" class="pillar-img">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Multifonction DEVELOP A3 ineo+" class="pillar-img">
             </div>
             <div class="pillar-content">
                 <span class="feature-badge">Pilier 2 : Cœur de Flotte</span>
@@ -120,18 +128,18 @@
             <div class="pillar-content">
                 <span class="feature-badge">Pilier 3 : Arts Graphiques</span>
                 <h2>Presses Numériques Haute Production</h2>
-                <p>Pour les imprimeries intégrées, les services communication et les entreprises exigeant une qualité d'impression digne des professionnels des arts graphiques, la gamme AccurioPress de DEVELOP repousse les limites de la production.</p>
+                <p>Pour les imprimeries intégrées, les services communication et les entreprises exigeant une qualité d'impression digne des professionnels des arts graphiques, la gamme AccurioPress / DEVELOP repousse les limites de la production.</p>
                 <p>Capables d'imprimer à haute cadence sur des supports à fort grammage (jusqu'à 350g/m²) avec une colorimétrie ultra-précise et des contrôleurs de flux avancés, ces presses permettent d'internaliser la fabrication de supports marketing complexes avec une rentabilité maximale.</p>
             </div>
             <div class="image-wrapper">
-                <img src="https://images.unsplash.com/photo-1562577309-4932f164fdee?auto=format&fit=crop&w=800&q=80" alt="Presse Numérique DEVELOP" class="pillar-img">
+                <img src="https://images.unsplash.com/photo-1562577309-4932f164fdee?auto=format&fit=crop&w=800&q=80" alt="Presse Numérique DEVELOP AccurioPress" class="pillar-img">
             </div>
         </div>
 
         <!-- 4. SÉCURITÉ INEO SECURE -->
         <div class="pillar-section reverse">
             <div class="image-wrapper">
-                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Sécurité Informatique ineo Secure" class="pillar-img">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Écran tactile multifonction DEVELOP ineo Secure" class="pillar-img">
             </div>
             <div class="pillar-content">
                 <span class="feature-badge">Pilier 4 : Protection des Données</span>
@@ -150,14 +158,14 @@
                 <p>L'utilisation de toners polymérisés d'origine végétale et la diminution des rejets de CO2 permettent aux entreprises d'honorer leurs engagements RSE tout en réalisant des économies substantielles sur leur facture électrique annuelle.</p>
             </div>
             <div class="image-wrapper">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Environnement et RSE DEVELOP" class="pillar-img">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Matériel DEVELOP éco-conçu" class="pillar-img">
             </div>
         </div>
 
         <!-- 6. SCAN & CLOUD FACILE AVEC COUCHE IA -->
         <div class="pillar-section reverse">
             <div class="image-wrapper">
-                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Scan Cloud et IA DEVELOP" class="pillar-img">
+                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Interface tactile et numérisation DEVELOP" class="pillar-img">
             </div>
             <div class="pillar-content">
                 <span class="feature-badge">Pilier 6 : Productivité Numérique</span>
